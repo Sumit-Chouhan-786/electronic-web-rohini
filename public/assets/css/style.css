@@ -2,12 +2,12 @@
 
 /*------------------- 1.1. Variable-------------------*/
 :root {
-  --theme-color: #07ccec;
+  --theme-color: #FF5916;
   --theme-color2: #2cb624;
-  --theme-color3: #27477d;
-  --theme-color4: #07ccec;
-  --theme-color5: #27467C;
-  --title-color: #27477d;
+  --theme-color3: #ff9e36;
+  --theme-color4: #ff9e36;
+  --theme-color5: #ff9e36;
+  --title-color: #ff9e36;
   --title-color2: #000000;
   --body-color: #888c92;
   --body-color2: #555555;
@@ -1760,7 +1760,7 @@ textarea.form-control.is-invalid {
   height: 70px;
   background-color: var(--white-color);
   color: var(--theme-color);
-  border: 4px solid rgba(7, 204, 236, 0.3);
+  border: 4px solid rgba(230, 137, 83, 0.8);
   display: inline-block;
   text-align: center;
   line-height: 65px;
@@ -5795,7 +5795,7 @@ textarea.form-control.is-invalid {
 }
 .footer1-logo img {
   background-color: var(--white-color);
-  padding: 30px;
+
 }
 .footer1-logo:before {
   content: "";

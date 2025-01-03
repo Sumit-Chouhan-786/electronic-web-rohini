@@ -10,7 +10,7 @@
                     <span></span>
                 </div>
                 <a class="text-white" href="/admin/dashboard"><img height="45" width="45" class="w-100"
-                        src="/assets/img/admin/logo.png" alt="logo"></a>
+                        src="/assets/img/logo.png" alt="logo"></a>
             </div>
             <a class="text-white d-flex align-items-center gap-2" href="/admin/logout">Logout<i
                     class="fa-solid fa-right-from-bracket pt-1"></i></a>
@@ -194,21 +194,22 @@
                 <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 overflow_scroll d-flex justify-content-center">
                     <div class="w-100 mt-3 p-3">
                         <h2>Update Team Member</h2>
-                        <form action="/admin/update-team/<%= team.id %>" method="POST" enctype="multipart/form-data" id="teamForm">
+                        <form action="/admin/update-team/<%= team.id %>" method="POST" enctype="multipart/form-data"
+                            id="teamForm">
                             <!-- Team Member Name Input -->
                             <div class="mb-3">
                                 <label for="teamName" class="form-label">Team Member Name</label>
-                                <input type="text" name="name" class="form-control" id="teamName" value="<%= team.name %>"
-                                    placeholder="Enter Team Member Name" required>
+                                <input type="text" name="name" class="form-control" id="teamName"
+                                    value="<%= team.name %>" placeholder="Enter Team Member Name" required>
                             </div>
-                        
+
                             <!-- Job Title Input -->
                             <div class="mb-3">
                                 <label for="specList" class="form-label">Job Title</label>
-                                <input type="text" name="specList" class="form-control" id="specList" value="<%= team.specList %>"
-                                    placeholder="Enter Job Title" required>
+                                <input type="text" name="specList" class="form-control" id="specList"
+                                    value="<%= team.specList %>" placeholder="Enter Job Title" required>
                             </div>
-                        
+
                             <!-- Image Field -->
                             <div class="mb-3">
                                 <label for="teamImage" class="form-label">Team Member Image</label><br />
@@ -219,50 +220,52 @@
                                     </div>
                                     <% } %>
                             </div>
-                        
+
                             <!-- Description Input (with TinyMCE Editor) -->
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" id="description" rows="1" placeholder="Enter Description"
-                                    required readonly><%= team.description %></textarea>
+                                <textarea name="description" class="form-control" id="description" rows="1"
+                                    placeholder="Enter Description" required readonly><%= team.description %></textarea>
                             </div>
-                        
+
                             <!-- SEO Section -->
                             <h5 class="bg-success p-2 rounded-2 text-white">SEO Information</h5>
-                        
+
                             <!-- SEO Title Input -->
                             <div class="mb-3">
                                 <label for="seoTitle" class="form-label">SEO Title</label>
-                                <input type="text" name="seoTitle" class="form-control" id="seoTitle" value="<%= team.seoTitle %>"
-                                    placeholder="Enter SEO Title" required>
+                                <input type="text" name="seoTitle" class="form-control" id="seoTitle"
+                                    value="<%= team.seoTitle %>" placeholder="Enter SEO Title" required>
                             </div>
-                        
+
                             <!-- SEO Keywords Input -->
                             <div class="mb-3">
                                 <label for="seoKeywords" class="form-label">SEO Keywords</label>
-                                <input type="text" name="seoKeywords" class="form-control" id="seoKeywords" value="<%= team.seoKeywords %>"
-                                    placeholder="Enter SEO Keywords" required>
+                                <input type="text" name="seoKeywords" class="form-control" id="seoKeywords"
+                                    value="<%= team.seoKeywords %>" placeholder="Enter SEO Keywords" required>
                             </div>
-                        
+
                             <!-- SEO Description Input (with TinyMCE Editor) -->
                             <div class="mb-3">
                                 <label for="seoDescription" class="form-label">SEO Description</label>
                                 <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
                                     placeholder="Enter SEO Description" readonly><%= team.seoDescription %></textarea>
                             </div>
-                        
+
                             <!-- Status Dropdown Input -->
                             <div class="mb-3">
                                 <label for="statusDropdown" class="form-label">Status</label>
                                 <div class="dropdown">
                                     <select class="form-select" name="status" id="statusDropdown" required>
                                         <option value="" disabled>-- Select Status --</option>
-                                        <option value="active" <%=team.status==="active" ? "selected" : "" %>>Active &#10004;</option>
-                                        <option value="deactive" <%=team.status==="deactive" ? "selected" : "" %>>Deactive &#10004;</option>
+                                        <option value="active" <%=team.status==="active" ? "selected" : "" %>>Active
+                                            &#10004;</option>
+                                        <option value="deactive" <%=team.status==="deactive" ? "selected" : "" %>
+                                            >Deactive &#10004;</option>
                                     </select>
                                 </div>
                             </div>
-                        
+
                             <!-- Submit Button -->
                             <button type="submit" class="btn submit_btn btn-primary w-100 mb-4">Update</button>
                         </form>
@@ -272,52 +275,51 @@
             </div>
         </div>
     </section>
-<%- include('../layout/admin-footer.ejs') %>
-    <script>
-        tinymce.init({
-            selector: '#description, #seoDescription',
-            plugins: 'advlist autolink lists link image charmap print preview anchor',
-            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
-            setup: function (editor) {
-                editor.on('init', function () {
-                    console.log('TinyMCE initialized');
-                    // Make sure the textarea is visible
-                    document.querySelector('#description').style.display = 'block';
-                    document.querySelector('#seoDescription').style.display = 'block';
-                });
-            }
-        });
+    <%- include('../layout/admin-footer.ejs') %>
+        <script>
+            tinymce.init({
+                selector: '#description, #seoDescription',
+                plugins: 'advlist autolink lists link image charmap print preview anchor',
+                toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+                setup: function (editor) {
+                    editor.on('init', function () {
+                        console.log('TinyMCE initialized');
+                        // Make sure the textarea is visible
+                        document.querySelector('#description').style.display = 'block';
+                        document.querySelector('#seoDescription').style.display = 'block';
+                    });
+                }
+            });
 
-        const form = document.querySelector('#teamForm');
-        form.addEventListener('submit', (event) => {
-            const descriptionTextarea = document.querySelector('#description');
-            const seoDescriptionTextarea = document.querySelector('#seoDescription');
+            const form = document.querySelector('#teamForm');
+            form.addEventListener('submit', (event) => {
+                const descriptionTextarea = document.querySelector('#description');
+                const seoDescriptionTextarea = document.querySelector('#seoDescription');
 
-            // Get content from TinyMCE editors
-            const descriptionContent = tinymce.get('description').getContent();
-            const seoDescriptionContent = tinymce.get('seoDescription').getContent();
+                // Get content from TinyMCE editors
+                const descriptionContent = tinymce.get('description').getContent();
+                const seoDescriptionContent = tinymce.get('seoDescription').getContent();
 
-            // Ensure TinyMCE content is transferred to the textareas before submitting
-            descriptionTextarea.value = descriptionContent;
-            seoDescriptionTextarea.value = seoDescriptionContent;
+                // Ensure TinyMCE content is transferred to the textareas before submitting
+                descriptionTextarea.value = descriptionContent;
+                seoDescriptionTextarea.value = seoDescriptionContent;
 
-            // Check if either description or seoDescription is empty
-            if (!descriptionContent.trim()) {
-                alert('Description is required.');
-                event.preventDefault();  // Prevent form submission
-                descriptionTextarea.focus();
-                return;
-            }
+                // Check if either description or seoDescription is empty
+                if (!descriptionContent.trim()) {
+                    alert('Description is required.');
+                    event.preventDefault();  // Prevent form submission
+                    descriptionTextarea.focus();
+                    return;
+                }
 
-            if (!seoDescriptionContent.trim()) {
-                alert('SEO Description is required.');
-                event.preventDefault();  // Prevent form submission
-                seoDescriptionTextarea.focus();
-                return;
-            }
+                if (!seoDescriptionContent.trim()) {
+                    alert('SEO Description is required.');
+                    event.preventDefault();  // Prevent form submission
+                    seoDescriptionTextarea.focus();
+                    return;
+                }
 
-            console.log('Description:', descriptionContent);
-            console.log('SEO Description:', seoDescriptionContent);
-        });
-    </script>
-       
+                console.log('Description:', descriptionContent);
+                console.log('SEO Description:', seoDescriptionContent);
+            });
+        </script>

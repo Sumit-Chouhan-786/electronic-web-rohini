@@ -4,17 +4,16 @@
 }
 
 .admin_login_bg {
-  background: linear-gradient(to bottom, #1e2a47, #2c3e50, #34495e, #2f4f4f, #212121);
+  background: #dc3545;
 }
-
-.admin_login_bg form{
-    background-image: url(../images/Admin-Login-bg.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+.admin_login_bg form {
+  background-image: url(../images/Admin-Login-bg.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .navbar {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
+ background-color: #cb791b !important ;
   width: 100%;
   position: sticky;
   top: 0;
@@ -179,7 +178,7 @@
   border: 1px solid transparent;
 }
 
-.text-truncate{
+.text-truncate {
   max-width: 300px !important;
 }
 /* table format */
