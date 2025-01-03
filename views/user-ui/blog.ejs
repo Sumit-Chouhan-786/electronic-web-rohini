@@ -1,0 +1,51 @@
+<%- include('../layout/ui-header.ejs') %>
+    <div class="breadcumb-wrapper ">
+        <div class="parallax" data-parallax-image="assets/img/breadcurmb/breadcurmb-1-1.jpg"></div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">Latest News</h1>
+                <div class="breadcumb-menu-wrap">
+                    <i class="far fa-home-lg"></i>
+                    <ul class="breadcumb-menu">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Latest News</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+        Blog Area
+    ==============================-->
+    <section class="vs-blog-wrapper space-top space-md-bottom">
+        <div class="container">
+            <div class="row">
+                <% blogs.forEach(blog=> { %>
+                    <div class="col-md-6 col-xl-4">
+                        <div class="blog-thumb">
+                            <div class="sr-img">
+                                <img style="max-height: 350px; min-height: 350px; object-fit: cover;" class="w-100"
+                                    src="/uploads/<%= blog.blogImage %>" alt="blog Image">
+                            </div>
+                            <div class="sr-body">
+                                <h3 class="h4 sr-title pt-2">
+                                    <a class="text-reset" href="/blog-details/<%= blog.id %>">
+                                        <%= blog.title %>
+                                    </a>
+                                </h3>
+                                <div class="sr-content">
+                                    <a href="/blog-details/<%= blog.id %>" class="link-btn">
+                                        Read More <i class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+
+
+            </div>
+        </div>
+        </div>
+    </section>
+    <%- include('../layout/ui-footer.ejs') %>
