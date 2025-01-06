@@ -137,8 +137,18 @@ const allGalleryImagesPage = async (req, res) => {
   }
 };
 
+const allGalleryClient = async () => {
+  try {
+    return await GalleryImage.find();
+  } catch (err) {
+    throw new Error("Error fetching team");
+  }
+};
+
+
 module.exports = {
   addGalleryImagePage,
+  allGalleryClient,
   addGalleryImage,
   updateGalleryImagePage,
   updateGalleryImage,

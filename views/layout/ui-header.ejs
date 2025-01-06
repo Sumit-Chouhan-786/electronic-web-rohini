@@ -48,6 +48,9 @@
     <link rel="stylesheet" href="/assets/css/animate.min.css">
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -69,18 +72,28 @@
                     <li>
                         <a href="/about">About Us</a>
                     </li>
+                <li>
+                    <a href="/clients">Clients</a>
+                </li>
                 <li class="menu-item-has-children">
-                    <a href="/adult-cardiac-disease">Adult Cardiac Disease</a>
+                    <a href="/adult-cardiac-disease">Plug and Socket</a>
                     <ul class="sub-menu">
-                        <% adultCardiacServices.forEach(service=> { %>
-                            <li><a href="/service-details/<%= service._id %>">
+                        <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                            <li>
+                                <a href="/service-details/<%= service._id %>">
                                     <%= service.name %>
-                                </a></li>
+                                </a>
+                            </li>
                             <% }); %>
+                
                     </ul>
                 </li>
+
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
                 
-                <li class="menu-item-has-children">
+                <!-- <li class="menu-item-has-children">
                     <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                     <ul class="sub-menu">
                         <% pediatricCardiacServices.forEach(service=> { %>
@@ -111,7 +124,7 @@
                                 </a></li>
                             <% }); %>
                     </ul>
-                </li>
+                </li> -->
     
                 </ul>
             </div>
@@ -175,18 +188,27 @@
                                         <li>
                                             <a href="/about">About</a>
                                         </li>
+                                        <li>
+                                            <a href="/clients">Clients</a>
+                                        </li>
                                         <li class="menu-item-has-children">
-                                            <a href="/adult-cardiac-disease">Adult Cardiac Disease</a>
+                                            <a href="/adult-cardiac-disease">Plug and Socket</a>
                                             <ul class="sub-menu">
-                                                <% adultCardiacServices.forEach(service=> { %>
-                                                    <li><a href="/service-details/<%= service._id %>">
-                                                            <%= service.name %>
-                                                        </a></li>
-                                                    <% }); %>
+                                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                                <li>
+                                                    <a href="/service-details/<%= service._id %>">
+                                                        <%= service.name %>
+                                                    </a>
+                                                </li>
+                                                <% }); %>
+
                                             </ul>
                                         </li>
+                                        <li>
+                                            <a href="/contact">Contact</a>
+                                        </li>
                                         
-                                        <li class="menu-item-has-children">
+                                        <!-- <li class="menu-item-has-children">
                                             <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                                             <ul class="sub-menu">
                                                 <% pediatricCardiacServices.forEach(service=> { %>
@@ -217,7 +239,7 @@
                                                         </a></li>
                                                     <% }); %>
                                             </ul>
-                                        </li>
+                                        </li> -->
 
                                     </ul>
                                 </nav>

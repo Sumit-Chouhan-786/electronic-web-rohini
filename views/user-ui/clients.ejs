@@ -1,0 +1,36 @@
+<%- include('../layout/ui-header.ejs') %>
+    <!-- section start -->
+    <div class="breadcumb-wrapper ">
+        <div class="parallax" data-parallax-image="/assets/img/about-bg.jpg"></div>
+        <div class="container z-index-common">
+            <div class="breadcumb-content">
+                <h1 class="breadcumb-title">Our Clients</h1>
+                <div class="breadcumb-menu-wrap">
+                    <i class="far fa-home-lg"></i>
+                    <ul class="breadcumb-menu">
+                        <li><a href="/">Home</a></li>
+                        <li class="active">Our Clients</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    About Area
+    ==============================-->
+    <section class="vs-about-wrapper space">
+        <div class="container">
+            <div class="row">
+            <% clients.forEach(img=> { %>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <img src="/uploads/<%= img.galleryImage %>" alt="Client Image" class="img-fluid rounded">
+                </div>
+                <% }); %>
+
+            </div>
+        </div>
+    </section>
+    <!--==============================
+			Footer Area
+	==============================-->
+    <%- include('../layout/ui-footer.ejs') %>

@@ -5,6 +5,7 @@ const getAllServicesIndex = require("../controllers/admin/servicesController");
 const getAllTestimonialsForIndex = require("../controllers/admin/testimonialController");
 const getAllBlogsForIndex = require("../controllers/admin/blogController");
 const getAllSliderIndex = require("../controllers/admin/sliderController");
+const {allGalleryClient} = require("../controllers/admin/imageGalleryController");
 const { createAppointment } = require("../controllers/admin/appoinmentController");
 
 // Route to fetch and render all services for the index page
@@ -272,5 +273,24 @@ router.get("/teams", async (req, res) => {
     });
   }
 });
+router.get("/clients", async (req, res) => {
+  try {
+    // Fetch services and testimonials asynchronously
+    const clients = await allGalleryClient();
+
+    // Render the index page with fetched data
+    res.render("user-ui/clients", { clients });
+  } catch (err) {
+    console.error("Error fetching data for the index page:", err);
+
+    // Render an error page with a friendly message
+    res.status(500).render("error", {
+      title: "Error",
+      message:
+        "An error occurred while loading the page. Please try again later.",
+    });
+  }
+});
+
 
 module.exports = router;

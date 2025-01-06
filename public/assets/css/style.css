@@ -2,12 +2,12 @@
 
 /*------------------- 1.1. Variable-------------------*/
 :root {
-  --theme-color: #FF5916;
+  --theme-color: #000;
   --theme-color2: #2cb624;
-  --theme-color3: #ff9e36;
-  --theme-color4: #ff9e36;
-  --theme-color5: #ff9e36;
-  --title-color: #ff9e36;
+  --theme-color3: #FF6807;
+  --theme-color4: #FF6807;
+  --theme-color5: #FF6807;
+  --title-color: #FF6807;
   --title-color2: #000000;
   --body-color: #888c92;
   --body-color2: #555555;
@@ -167,7 +167,7 @@ p {
 .h5, h5,
 .h6, h6 {
   font-family: var(--title-font);
-  color: var(--title-color);
+  color: var(--title-color2);
   text-transform: none;
   font-weight: 700;
   line-height: 1.3;
@@ -1817,7 +1817,7 @@ textarea.form-control.is-invalid {
 .scroll-bottom i {
   width: 60px;
   height: 70px;
-  background-color: var(--white-color);
+  background-color: orange;
   color: var(--theme-color);
   line-height: 70px;
   text-align: center;
@@ -2699,16 +2699,8 @@ textarea.form-control.is-invalid {
   color: var(--theme-color);
 }
 
-.text-reset:hover {
-  color: var(--theme-color) !important;
-}
-
 .text-white-light {
   color: rgba(255, 255, 255, 0.8);
-}
-
-.hover-white:not(.vs-btn):hover {
-  color: var(--white-color) !important;
 }
 
 /*------------------- 3.9. Overlay -------------------*/
@@ -3888,8 +3880,8 @@ textarea.form-control.is-invalid {
   height: 55px;
   text-align: center;
   line-height: 55px;
-  background-color: rgba(39, 71, 125, 0.28);
-  color: #7f9ccd;
+  background-color: #000;
+  color: white;
   margin-right: 12px;
   border-radius: 50%;
 }
@@ -3918,7 +3910,7 @@ textarea.form-control.is-invalid {
   padding: 21.5px 0;
 }
 .footer-layout1 .footer-top {
-  border-bottom: 1px solid #1a3461;
+  border-bottom: 2px solid white;
 }
 .footer-layout1 .widget-area {
   padding-top: 80px;
@@ -10753,7 +10745,7 @@ blockquote cite:before {
 .service-box {
   text-align: center;
   --shape-size: 92px;
-  padding: 40px 40px 42px 40px;
+  padding: 20px;
   border-radius: 10px;
   border: 2px solid #e6f8fb;
   position: relative;
@@ -18320,3 +18312,36 @@ body {
     padding-top: 204px;
   }
 }
+
+
+/* Common Arrow Button Styles */
+.custom-arrow {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    z-index: 9999;
+    background-color: orange;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom_prev_arrow {
+    left: 0; 
+}
+
+.custom_next_arrow {
+    right: 0; 
+}
+
+.custom-prev-arrow i, .custom-next-arrow i {
+    font-size: 18px;
+}
+
