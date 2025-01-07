@@ -76,7 +76,7 @@
                     <a href="/clients">Clients</a>
                 </li>
                 <li class="menu-item-has-children">
-                    <a href="/adult-cardiac-disease">Plug & Socket</a>
+                    <a href="/adult-cardiac-disease">Plugs & Sockets</a>
                     <ul class="sub-menu">
                         <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
                             <li>
@@ -131,10 +131,12 @@
         </div>
     </div>
 
-    <div class="side_social cursor_pointer">
-        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i class="fa-solid fa-phone cursor_pointer"></i></a>
-        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i class="fa-brands fa-whatsapp cursor_pointer"></i></a>
-    </div>
+<div class="side_social cursor_pointer">
+    <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
+            class="fa-solid fa-phone cursor_pointer"></i></a>
+    <a class="cursor_pointer" href="https://wa.me/<%= siteSettings[0].number %>"><i
+            class="fa-brands fa-whatsapp cursor_pointer"></i></a>
+</div>
     <!--==============================
             Header Area
         ==============================-->
@@ -196,7 +198,7 @@
                                             <a href="/clients">Clients</a>
                                         </li>
                                         <li class="menu-item-has-children">
-                                            <a href="/adult-cardiac-disease">Plug & Socket</a>
+                                            <a href="/adult-cardiac-disease">Plugs & Sockets</a>
                                             <ul class="sub-menu">
                                             <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
                                                 <li>

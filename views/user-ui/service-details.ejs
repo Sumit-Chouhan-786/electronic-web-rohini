@@ -57,42 +57,45 @@
 </head>
 
 <body>
-    <div class="vs-menu-wrapper">
-        <div class="vs-menu-area text-center">
-            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-            <div class="mobile-logo">
-                <a href="/"><img style="max-width: 100px;" src="/uploads/<%= siteSettings[0].logo %>" alt="Medixi"></a>
-            </div>
-            <div class="vs-mobile-menu">
-                <ul>
-                    <li class="menu-item-has-children">
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/about">About Us</a>
-                    </li>
-                    <li>
-                        <a href="/clients">Clients</a>
-                    </li>
-                    <li class="menu-item-has-children">
-                        <a href="/adult-cardiac-disease">Plug & Socket</a>
-                        <ul class="sub-menu">
-                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
-                                <li>
-                                    <a href="/service-details/<%= service._id %>">
-                                        <%= service.name %>
-                                    </a>
-                                </li>
-                                <% }); %>
+<!--==============================
+        Mobile Menu
+      ============================== -->
+<div class="vs-menu-wrapper">
+    <div class="vs-menu-area text-center">
+        <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+        <div class="mobile-logo">
+            <a href="/"><img style="max-width: 100px;" src="/uploads/<%= siteSettings[0].logo %>" alt="Medixi"></a>
+        </div>
+        <div class="vs-mobile-menu">
+            <ul>
+                <li class="menu-item-has-children">
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about">About Us</a>
+                </li>
+                <li>
+                    <a href="/clients">Clients</a>
+                </li>
+                <li class="menu-item-has-children">
+                    <a href="/adult-cardiac-disease">Plugs & Sockets</a>
+                    <ul class="sub-menu">
+                        <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                            <li>
+                                <a href="/service-details/<%= service._id %>">
+                                    <%= service.name %>
+                                </a>
+                            </li>
+                            <% }); %>
 
-                        </ul>
-                    </li>
+                    </ul>
+                </li>
 
-                    <li>
-                        <a href="/contact">Contact</a>
-                    </li>
+                <li>
+                    <a href="/contact">Contact</a>
+                </li>
 
-                    <!-- <li class="menu-item-has-children">
+                <!-- <li class="menu-item-has-children">
                     <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                     <ul class="sub-menu">
                         <% pediatricCardiacServices.forEach(service=> { %>
@@ -125,101 +128,99 @@
                     </ul>
                 </li> -->
 
-                </ul>
-            </div>
+            </ul>
         </div>
     </div>
+</div>
 
-    <div class="side_social cursor_pointer">
-        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
-                class="fa-solid fa-phone cursor_pointer"></i></a>
-        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
-                class="fa-brands fa-whatsapp cursor_pointer"></i></a>
-    </div>
-    <!--==============================
+<div class="side_social cursor_pointer">
+    <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
+            class="fa-solid fa-phone cursor_pointer"></i></a>
+    <a class="cursor_pointer" href="https://wa.me/<%= siteSettings[0].number %>" ><i
+            class="fa-brands fa-whatsapp cursor_pointer"></i></a>
+</div>
+<!--==============================
             Header Area
         ==============================-->
-    <header class="header-wrapper header-layout1">
-        <!-- Header Top -->
-        <div class="header-top bg-title py-2 d-none d-md-block">
-            <div class="container container-style1 py-1">
-                <div class="row justify-content-center justify-content-xl-between">
-                    <div class="col-auto">
-                        <ul class="header-top-info list-unstyled m-0">
-                            <li><i class="far fa-envelope"></i><a href="<%= siteSettings[0].email %>"
-                                    class="text-reset">
-                                    <%= siteSettings[0].email %>
-                                </a></li>
-                            <li><i class="fa fa-phone"></i><a href="tel:<%= siteSettings[0].number %>"
-                                    class="text-reset">
-                                    <%= siteSettings[0].number %>
-                                </a></li>
-                        </ul>
-                    </div>
-                    <div class="col-auto d-none d-xl-block">
-                        <ul class="head-top-links text-end">
-                            <li>
-                                <ul class="header-social">
-                                    <li>
-                                        <a href="<%= siteSettings[0].facebook %>"><i class="fab fa-facebook-f"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="<%= siteSettings[0].twitter %>"><i class="fab fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="<%= siteSettings[0].linkedin %>"><i class="fab fa-linkedin-in"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+<header class="header-wrapper header-layout1">
+    <!-- Header Top -->
+    <div class="header-top bg-title py-2 d-none d-md-block">
+        <div class="container container-style1 py-1">
+            <div class="row justify-content-center justify-content-xl-between">
+                <div class="col-auto">
+                    <ul class="header-top-info list-unstyled m-0">
+                        <li><i class="far fa-envelope"></i><a href="<%= siteSettings[0].email %>" class="text-reset">
+                                <%= siteSettings[0].email %>
+                            </a></li>
+                        <li><i class="fa fa-phone"></i><a href="tel:<%= siteSettings[0].number %>" class="text-reset">
+                                <%= siteSettings[0].number %>
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="col-auto d-none d-xl-block">
+                    <ul class="head-top-links text-end">
+                        <li>
+                            <ul class="header-social">
+                                <li>
+                                    <a href="<%= siteSettings[0].facebook %>"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="<%= siteSettings[0].twitter %>"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="<%= siteSettings[0].linkedin %>"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <!-- Sticky Active -->
-        <div class="sticky-wrap">
-            <div class="sticky-active">
-                <!-- Header Main -->
-                <div class="header-main">
-                    <div class="container container-style1 position-relative">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-auto">
-                                <div class="header1-logo py-2">
-                                    <a href="/"><img style="max-width: 100px;"
-                                            src="/uploads/<%= siteSettings[0].logo %>" alt="Logo"></a>
-                                </div>
+    </div>
+    <!-- Sticky Active -->
+    <div class="sticky-wrap">
+        <div class="sticky-active">
+            <!-- Header Main -->
+            <div class="header-main">
+                <div class="container container-style1 position-relative">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto">
+                            <div class="header1-logo py-2">
+                                <a href="/"><img style="max-width: 100px;" src="/uploads/<%= siteSettings[0].logo %>"
+                                        alt="Logo"></a>
                             </div>
-                            <div class="col text-end text-lg-center">
-                                <nav
-                                    class="main-menu menu-style1 d-none align-items-center gap-4 d-lg-flex justify-content-end">
-                                    <ul>
-                                        <li>
-                                            <a href="/">Home </a>
-                                        </li>
-                                        <li>
-                                            <a href="/about">About</a>
-                                        </li>
-                                        <li>
-                                            <a href="/clients">Clients</a>
-                                        </li>
-                                        <li class="menu-item-has-children">
-                                            <a href="/adult-cardiac-disease">Plug & Socket</a>
-                                            <ul class="sub-menu">
-                                                <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
-                                                    <li>
-                                                        <a href="/service-details/<%= service._id %>">
-                                                            <%= service.name %>
-                                                        </a>
-                                                    </li>
-                                                    <% }); %>
+                        </div>
+                        <div class="col text-end text-lg-center">
+                            <nav
+                                class="main-menu menu-style1 d-none align-items-center gap-4 d-lg-flex justify-content-end">
+                                <ul>
+                                    <li>
+                                        <a href="/">Home </a>
+                                    </li>
+                                    <li>
+                                        <a href="/about">About</a>
+                                    </li>
+                                    <li>
+                                        <a href="/clients">Clients</a>
+                                    </li>
+                                    <li class="menu-item-has-children">
+                                        <a href="/adult-cardiac-disease">Plugs & Sockets</a>
+                                        <ul class="sub-menu">
+                                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                                <li>
+                                                    <a href="/service-details/<%= service._id %>">
+                                                        <%= service.name %>
+                                                    </a>
+                                                </li>
+                                                <% }); %>
 
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="/contact">Contact</a>
-                                        </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/contact">Contact</a>
+                                    </li>
 
-                                        <!-- <li class="menu-item-has-children">
+                                    <!-- <li class="menu-item-has-children">
                                             <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                                             <ul class="sub-menu">
                                                 <% pediatricCardiacServices.forEach(service=> { %>
@@ -252,25 +253,23 @@
                                             </ul>
                                         </li> -->
 
-                                    </ul>
-                                    <div>
-                                        <a href="/assets/pdf/mypdf.pdf" download
-                                            class="px-2 py-1 text-white rounded-2 fs-6"
-                                            style="background-color: #FF6807;">E
-                                            CATALOGUE</a>
-                                    </div>
+                                </ul>
+                                <div>
+                                    <a href="/assets/pdf/mypdf.pdf" download class="px-2 py-1 text-white rounded-2 fs-6"
+                                        style="background-color: #FF6807;">E
+                                        CATALOGUE</a>
+                                </div>
 
-                                </nav>
-                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
-                                        class="fas fa-bars"></i></button>
-                            </div>
+                            </nav>
+                            <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fas fa-bars"></i></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </header>
+</header>
     <div class="breadcumb-wrapper ">
         <div class="parallax" data-parallax-image="/assets/img/about-bg.jpg"></div>
         <div class="container z-index-common">
@@ -302,7 +301,18 @@
                                 <%= service.name %>
                             </h2>
                             <p><%- service.description %></p>
+                            <div class="d-flex gap-3 align-items-center">
+                                <a href="tel:<%= siteSettings[0].number %>" class="text-decoration-none orange_border rounded-3 px-2 py-1">
+                                    <i class="fa-solid fa-phone cursor-pointer"></i> Click to Call
+                                </a>
+                                <a href="https://wa.me/<%= siteSettings[0].number %>" class="text-decoration-none orange_border rounded-3 px-2 py-1">
+                                    <i class="fa-brands fa-whatsapp cursor-pointer"></i> WhatsApp Chat
+                                </a>
+                            </div>
                         </div>
+
+                     
+
                     </div>
                 </div>
             </div>
