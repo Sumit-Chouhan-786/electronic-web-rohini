@@ -18368,3 +18368,19 @@ body {
   color: var(--theme-color3);
 }
 
+.hero_slider .ls-slide {
+    background-size: cover;
+    background-position: center;
+    height: 600px; /* Adjust this as needed */
+    position: relative;
+}
+
+.text-title {
+    color: #fff; /* Ensure text is visible over background */
+    position: absolute;
+}
+
+.ls-l {
+    position: absolute;
+    color: #fff; /* Adjust text color as needed */
+}
