@@ -292,5 +292,9 @@ router.get("/clients", async (req, res) => {
   }
 });
 
+router.get("/policy",(req,res)=>{
+  res.render("user-ui/privacy.ejs");
+});
+
 
 module.exports = router;

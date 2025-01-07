@@ -3,7 +3,7 @@
     Breadcumb
 ============================== -->
     <div class="breadcumb-wrapper ">
-        <div class="parallax" data-parallax-image="/assets/img/breadcurmb/breadcurmb-1-1.jpg"></div>
+        <div class="parallax" data-parallax-image="/assets/img/about-bg.jpg"></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
                 <h1 class="breadcumb-title">Contact Us</h1>
@@ -19,120 +19,108 @@
     </div>
 <section class="appointment-wrapper space-top space-md-bottom">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-6 mb-30">
-                <div class="about-content">
-                    <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">Medical &amp; General Care!</span>
-                    <h2 class="h1 mb-3">We’re Here For You</h2>
-                    <div class="row">
-                        <div class="col-xl-10 mb-md-2 pb-md-1">
-                            <p class="mb-md-4">Proactively revolutionize granular customer service after pandemic
-                                internal or "organic" sources. Distinctively impact proactive human capital rather than
-                                client-centered benefits. </p>
-                        </div>
-                        <div class="col-md-6 col-lg-5 col-xl-4">
-                            <ul class="vs-list list-unstyled text-title">
-                                <li>99% success rate </li>
-                                <li>100% Confidential</li>
-                                <li>Affordable Fees</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6 col-lg-5 col-xl-5">
-                            <ul class="vs-list list-unstyled text-title">
-                                <li>Free Consultation</li>
-                                <li>Expert surveillance agents</li>
-                                <li>Over 50 years experience</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <ul class="offer-counter counter-list list-unstyled" data-offer-date="12/08/2024">
-                        <li>
-                            <div class="day count-number ">00</div>
-                            <span class="count-name">Days</span>
-                        </li>
-                        <li>
-                            <div class="hour count-number ">00</div>
-                            <span class="count-name">Hours</span>
-                        </li>
-                        <li>
-                            <div class="minute count-number ">00</div>
-                            <span class="count-name">Minutes</span>
-                        </li>
-                        <li>
-                            <div class="seconds count-number ">00</div>
-                            <span class="count-name">Seconds</span>
-                        </li>
-                    </ul>
-                    <div class="vs-code-box mt-20">
-                        Use Code: <span class="text-theme">Native</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 mb-30 pt-30 pt-xl-0">
-        <form action="/contact" method="POST" class="form-wrap1 bg-white wow fadeInUp" data-wow-delay="0.3s"
-            onsubmit="return validateForm(event)">
-            <div class="form-title-box bg-title">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-auto">
-                        <h2 class="h4 mb-1 text-white">Book An Appointment</h2>
-                        <p class="mb-0 text-white-light">Please Call Us To Ensure</p>
-                    </div>
-                    <div class="col-auto d-none d-sm-block">
-                        <a href="tel:<%= siteSettings[0].number %>" class="ripple-icon style2"><i class="fas fa-phone"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="form-box">
+    <div class="row">
+        <div class="col-xl-6 mb-30">
+            <div class="about-content">
+                <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">Innovative Product Solutions!</span>
+                <h2 class="h1 mb-3">Empowering Your Needs</h2>
                 <div class="row">
-                    <div class="col-xl-6 form-group">
-                        <select name="services" id="services" class="form-select style2" required>
-                            <option hidden disabled selected value="">Select Services</option>
-                            <% services.forEach((service)=> { %>
-                                <option value="<%= service._id %>">
-                                    <%= service.name %>
-                                </option>
-                                <% }); %>
-                        </select>
+                    <div class="col-xl-10 mb-md-2 pb-md-1">
+                        <p class="mb-md-4">
+                            Explore cutting-edge product solutions designed to revolutionize industries and
+                            exceed customer
+                            expectations. Experience the future of innovation.
+                        </p>
                     </div>
-                    <div class="col-xl-6 form-group">
-                        <select name="teams" id="teams" class="form-select style2" required>
-                            <option hidden disabled selected value="">Choose Doctor</option>
-                            <% teams.forEach((team)=> { %>
-                                <option value="<%= team._id %>">
-                                    <%= team.name %>
-                                </option>
-                                <% }); %>
-                        </select>
+                    <div class="col-md-6 col-lg-5 col-xl-4">
+                        <ul class="vs-list list-unstyled text-title">
+                            <li>99% Satisfaction Rate</li>
+                            <li>100% Quality Assurance</li>
+                            <li>Affordable Pricing</li>
+                        </ul>
                     </div>
-                    <div class="col-xl-6 form-group">
-                        <input type="text" id="name" name="name" class="form-control style2" placeholder="Your Name" required />
-                        <i class="fal small fa-user"></i>
-                    </div>
-                    <div class="col-xl-6 form-group">
-                        <input type="email" id="email" name="email" class="form-control style2" placeholder="Email Address"
-                            required />
-                        <i class="fal small fa-envelope"></i>
-                    </div>
-                    <div class="col-xl-6 form-group">
-                        <input type="number" id="phone" name="phone" class="form-control style2" placeholder="Your Phone"
-                            required />
-                        <i class="fal small fa-phone"></i>
-                    </div>
-                    <div class="col-xl-6 form-group">
-                        <input type="date" id="dateAndTime" name="dateAndTime" class="w-100 form-control style2" required />
-                    </div>
-                    <div class="col-xl-12 text-center">
-                        <button type="submit" class="vs-btn style2">
-                            Make Appointment <i class="far fa-calendar-alt"></i>
-                        </button>
+                    <div class="col-md-6 col-lg-5 col-xl-5">
+                        <ul class="vs-list list-unstyled text-title">
+                            <li>24/7 Customer Support</li>
+                            <li>Global Availability</li>
+                            <li>50+ Years of Expertise</li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-        </form>
-
-
+                <ul class="offer-counter counter-list list-unstyled" data-offer-date="12/08/2024">
+                    <li>
+                        <div class="day count-number ">00</div>
+                        <span class="count-name">Days</span>
+                    </li>
+                    <li>
+                        <div class="hour count-number ">00</div>
+                        <span class="count-name">Hours</span>
+                    </li>
+                    <li>
+                        <div class="minute count-number ">00</div>
+                        <span class="count-name">Minutes</span>
+                    </li>
+                    <li>
+                        <div class="seconds count-number ">00</div>
+                        <span class="count-name">Seconds</span>
+                    </li>
+                </ul>
+                <div class="vs-code-box mt-20">
+                    Use Code: <span class="text-theme">SAVE20</span>
+                </div>
             </div>
         </div>
+        <div class="col-xl-6 mb-30 pt-30 pt-xl-0">
+            <!-- Form -->
+            <form action="/" method="POST" class="form-wrap1 bg-white wow fadeInUp" data-wow-delay="0.3s"
+                onsubmit="return validateForm(event)">
+                <div class="form-title-box bg-title">
+                    <div class="row justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <h2 class="h4 mb-1 text-white">Inquire About Products</h2>
+                            <p class="mb-0 text-white-light">We’re Here to Help</p>
+                        </div>
+                        <div class="col-auto d-none d-sm-block">
+                            <a href="tel:<%= siteSettings[0].number %>" class="ripple-icon style2"><i
+                                    class="fas fa-phone"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-box">
+                    <div class="row">
+                        <div class="col-xl-6 form-group">
+                            <input type="text" id="fullName" name="name" class="form-control style2" placeholder="Full Name" required />
+                            <i class="fal small fa-user"></i>
+                        </div>
+                        <div class="col-xl-6 form-group">
+                            <input type="email" id="emailAddress" name="email" class="form-control style2" placeholder="Email Address"
+                                required />
+                            <i class="fal small fa-envelope"></i>
+                        </div>
+                        <div class="col-xl-6 form-group">
+                            <input type="tel" id="phoneNumber" name="phone" class="form-control style2" placeholder="Phone Number"
+                                required />
+                            <i class="fal small fa-phone"></i>
+                        </div>
+                        <div class="col-xl-6 form-group">
+                            <input type="password" id="userPassword" name="password" class="form-control style2" placeholder="Password"
+                                required />
+                            <i class="fal small fa-lock"></i>
+                        </div>
+                        <div class="col-xl-12 form-group">
+                            <textarea id="userMessage" name="message" class="form-control style2" placeholder="Message"
+                                required></textarea>
+                        </div>
+                        <div class="col-xl-12 text-center">
+                            <button type="submit" class="vs-btn style2">
+                                Submit Inquiry <i class="far fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     </div>
 </section>
 <%- include('../layout/ui-footer.ejs') %>

@@ -24,8 +24,8 @@ $(document).ready(function () {
   $(".product_slider").slick({
     dots: false, 
     arrows: true, 
-    prevArrow: $(".custom-prev-arrow"), 
-    nextArrow: $(".custom-next-arrow"), 
+    prevArrow: $(".custom_prev_arrow"), 
+    nextArrow: $(".custom_next_arrow"), 
     infinite: true, 
     speed: 300, 
     slidesToShow: 4,
@@ -36,7 +36,7 @@ $(document).ready(function () {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {

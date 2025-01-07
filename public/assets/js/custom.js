@@ -53,3 +53,13 @@ function validateEmail(email) {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return emailRegex.test(email);
 }
+
+function downloadPdf() {
+  const pdfUrl = "../pdf/mypdf.pdf";
+  const link = document.createElement("a");
+  link.href = pdfUrl;
+  link.download = "E-Catalogue.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}

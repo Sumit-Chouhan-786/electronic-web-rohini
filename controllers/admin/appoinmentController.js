@@ -7,10 +7,10 @@ const createAppointment = async (req, res) => {
     console.log("Received form data:", req.body); // Log the incoming data
 
     // Extract fields from the request body
-    const { name, email, phone, services, teams, dateAndTime } = req.body;
+    const { name, email, phone, password, message } = req.body;
 
     // Validate required fields
-    if (!name || !email || !phone || !services || !teams || !dateAndTime) {
+    if (!name || !email || !phone || !password || !message) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
@@ -23,9 +23,8 @@ const createAppointment = async (req, res) => {
       name,
       email,
       phone,
-      services,
-      teams,
-      dateAndTime,
+      password,
+      message,
     });
 
     // Save the new appointment
@@ -44,9 +43,7 @@ const createAppointment = async (req, res) => {
 // ======================================================================== Show All Appointments for Index
 const getAllAppointmentForIndex = async () => {
   try {
-    const appointments = await Appointment.find()
-      .populate("services", "name") // Populate service name
-      .populate("teams", "name"); // Populate team (doctor) name
+    const appointments = await Appointment.find();
     return appointments;
   } catch (error) {
     console.error("Error fetching appointments:", error);
@@ -68,9 +65,7 @@ const deleteAppointment = async (req, res) => {
     console.log("Appointment deleted successfully:", id);
 
     // Get updated list of appointments
-    const appointments = await Appointment.find()
-      .populate("services", "name")
-      .populate("teams", "name");
+    const appointments = await Appointment.find();
 
     // Store data in session (if applicable)
     req.session.appointments = appointments;

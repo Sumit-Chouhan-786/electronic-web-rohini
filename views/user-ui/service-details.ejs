@@ -72,15 +72,25 @@
                 <li>
                     <a href="/about">About Us</a>
                 </li>
+                <li>
+                    <a href="/clients">Clients</a>
+                </li>
                 <li class="menu-item-has-children">
-                    <a href="/adult-cardiac-disease">Products</a>
+                    <a href="/adult-cardiac-disease">Plug and Socket</a>
                     <ul class="sub-menu">
-                        <% adultCardiacServices.forEach(service=> { %>
-                            <li><a href="/service-details/<%= service._id %>">
+                        <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                            <li>
+                                <a href="/service-details/<%= service._id %>">
                                     <%= service.name %>
-                                </a></li>
+                                </a>
+                            </li>
                             <% }); %>
+
                     </ul>
+                </li>
+
+                <li>
+                    <a href="/contact">Contact</a>
                 </li>
 
                 <!-- <li class="menu-item-has-children">
@@ -136,7 +146,6 @@
                         <li><i class="far fa-phone"></i><a href="tel:<%= siteSettings[0].number %>" class="text-reset">
                                 <%= siteSettings[0].number %>
                             </a></li>
-                        <li><i class="far fa-clock"></i>Mon - Fri: 9:00 am - 6:00 pm</li>
                     </ul>
                 </div>
                 <div class="col-auto d-none d-xl-block">
@@ -181,15 +190,24 @@
                                     <li>
                                         <a href="/about">About</a>
                                     </li>
+                                    <li>
+                                        <a href="/clients">Clients</a>
+                                    </li>
                                     <li class="menu-item-has-children">
-                                        <a href="/adult-cardiac-disease">Products</a>
+                                        <a href="/adult-cardiac-disease">Plug and Socket</a>
                                         <ul class="sub-menu">
-                                            <% adultCardiacServices.forEach(service=> { %>
-                                                <li><a href="/service-details/<%= service._id %>">
+                                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                                <li>
+                                                    <a href="/service-details/<%= service._id %>">
                                                         <%= service.name %>
-                                                    </a></li>
+                                                    </a>
+                                                </li>
                                                 <% }); %>
+
                                         </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/contact">Contact</a>
                                     </li>
 
                                     <!-- <li class="menu-item-has-children">
@@ -236,15 +254,15 @@
     </div>
 </header>
     <div class="breadcumb-wrapper ">
-        <div class="parallax" data-parallax-image="/assets/img/breadcurmb/breadcurmb-1-1.jpg"></div>
+        <div class="parallax" data-parallax-image="/assets/img/about-bg.jpg"></div>
         <div class="container z-index-common">
             <div class="breadcumb-content">
-                <h1 class="breadcumb-title">Services Details</h1>
+                <h1 class="breadcumb-title">Product Details</h1>
                 <div class="breadcumb-menu-wrap">
                     <i class="far fa-home-lg"></i>
                     <ul class="breadcumb-menu">
                         <li><a href="/">Home</a></li>
-                        <li class="active">Services Details</li>
+                        <li class="active">Product Details</li>
                     </ul>
                 </div>
             </div>

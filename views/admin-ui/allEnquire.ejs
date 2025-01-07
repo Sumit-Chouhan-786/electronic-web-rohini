@@ -204,9 +204,8 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-                                    <th>Services</th>
-                                    <th>Doctor</th>
-                                    <th>Date & Time</th>
+                                    <th>Password</th>
+                                    <th>Date and Time</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -226,13 +225,11 @@
                                             <%= appointment.phone %>
                                         </td>
                                         <td>
-                                            <%= appointment.services ? appointment.services.name : 'Not Available' %>
-                                        </td> <!-- Service name -->
-                                        <td>
-                                            <%= appointment.teams ? appointment.teams.name : 'Not Available' %>
+                                            <%= appointment.password %>
                                         </td>
-                                        <td>
-                                            <%= appointment.dateAndTime %>
+
+                                        <td class="text-truncate">
+                                            <%= appointment.createdAt %>
                                         </td>
                                         <td>
                                             <a href="/admin/deleteAppointments/<%= appointment._id %>"
