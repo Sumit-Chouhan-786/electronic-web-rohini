@@ -11,6 +11,7 @@ const imageGalleryController = require("../controllers/admin/imageGalleryControl
 const pagesController = require("../controllers/admin/pagesController");
 const serviceController = require("../controllers/admin/servicesController");
 const testimonialController = require("../controllers/admin/testimonialController");
+const aboutController = require("../controllers/admin/aboutController");
 const videoGalleryController = require("../controllers/admin/videoGalleryController");
 const siteSettingController = require("../controllers/admin/siteController");
 const teamController = require("../controllers/admin/teamController")
@@ -174,5 +175,17 @@ router.post(
 router.get("/delete-team/:id", teamController.deleteTeam);
 router.get("/all-team", teamController.allTeams);
 //======================================================================= team routes end
-
+//================================================================== add about routes start
+// Add About Routes
+router.get("/add-about", aboutController.addAboutPage);
+router.post("/add-about", upload.single("aboutImage"), aboutController.addAbout);
+router.get("/update-about/:id", aboutController.updateAboutPage);
+router.post(
+  "/update-about/:id",
+  upload.single("aboutImage"),
+  aboutController.updateAbout
+);
+router.get("/delete-about/:id", aboutController.deleteAbout);
+router.get("/all-about", aboutController.allAbout);
+//================================================================== add about routes end
 module.exports = router;

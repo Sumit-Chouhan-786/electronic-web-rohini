@@ -21,44 +21,24 @@
     <section class="vs-about-wrapper space">
         <div class="container">
             <div class="row flex-row-reverse align-items-center">
-                <div class="col-lg-6 mb-40 mb-lg-0">
-                    <div>
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/JjARsrG1GQQ?si=8OwY3jfBT3b0_AsY"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <% about.forEach(about=> { %>
+                    <div class="col-lg-6 mb-40 mb-lg-0">
+                        <div>
+                            <img class="w-100" src="/uploads/<%= about.aboutImage %>" alt="about">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-6 align-self-center">
-                    <div class="about-content mb-2 ">
-                        <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">How CHRM portal works ?</span>
-                        <p class="pt-2">Know All About Our Best Cardiologist & Heart Specialist CHRM System.<br>
-                            Cardiac Second Opinion is a website which has been designed specifically for those who are
-                            seeking for
-                            the second
-                            opinion after being advised an intervention which they are not sure of. In India, after
-                            visiting a heart
-                            doctor or
-                            surgeon, he likely gets a different opinion which makes him confused about which treatment
-                            he should go
-                            for. To fill
-                            this vacuum, Cardiac Second Opinion is designed by making use of algorithms based on
-                            American Heart
-                            Association and
-                            European Cardiological Society which have made guidelines which dictate the treatment as per
-                            the disease
-                            and not the
-                            doctor. Cardiac Second Opinion has a full team comprising Specialist Interventional
-                            Cardiologists,
-                            Cardiac Surgeons,
-                            Bariatric Cardiologists, Electrophysiologists, and Non-Interventional Cardiologists (for
-                            treatment with
-                            medicines only)
-                            on its panel.</p>
-                        <a href="/about" class="vs-btn">Learn More</a>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-content mb-2 ">
+                            <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">
+                                <%= about.heading %>
+                            </span>
+                            <p class="pt-2">
+                                <%- about.description %>
+                            </p>
+                            <a href="/about" class="vs-btn">Learn More</a>
+                        </div>
                     </div>
-                </div>
+                    <% }); %>
             </div>
         </div>
     </section>

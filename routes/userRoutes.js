@@ -5,6 +5,7 @@ const getAllServicesIndex = require("../controllers/admin/servicesController");
 const getAllTestimonialsForIndex = require("../controllers/admin/testimonialController");
 const getAllBlogsForIndex = require("../controllers/admin/blogController");
 const getAllSliderIndex = require("../controllers/admin/sliderController");
+const getAllAboutForIndex = require("../controllers/admin/aboutController");
 const {allGalleryClient} = require("../controllers/admin/imageGalleryController");
 const { createAppointment } = require("../controllers/admin/appoinmentController");
 
@@ -13,6 +14,7 @@ router.get("/", async (req, res) => {
   try {
     // Fetch services and testimonials asynchronously
     const services = await getAllServicesIndex.getAllServicesIndex();
+    const about = await getAllAboutForIndex.getAllAboutForIndex();
     const teams = await getAllTeamsForAbout.getAllTeamsForAbout();
     const testimonials =
       await getAllTestimonialsForIndex.getAllTestimonialsForIndex();
@@ -22,6 +24,7 @@ router.get("/", async (req, res) => {
     // Render the index page with fetched data
     res.render("user-ui/index", {
       services,
+      about,
       testimonials,
       blogs,
       sliders,
@@ -105,12 +108,11 @@ router.get("/service-details/:id", async (req, res) => {
 
 router.get("/about", async (req, res) => {
   try {
-    const blogs = await getAllBlogsForIndex.getAllBlogsForIndex();
-    const teams = await getAllTeamsForAbout.getAllTeamsForAbout();
-    res.render("../views/user-ui/about.ejs", { teams, blogs });
+    const about = await getAllAboutForIndex.getAllAboutForIndex();
+    res.render("../views/user-ui/about.ejs", { about });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Error fetching doctors and sliders.");
+    res.status(500).send("Error fetching about deta.");
   }
 });
 router.get("/team-details/:id", async (req, res) => {

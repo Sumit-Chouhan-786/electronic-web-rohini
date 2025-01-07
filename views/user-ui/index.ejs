@@ -4,8 +4,8 @@
       Hero Area
     ==============================-->
     <section class="vs-hero-wrapper position-relative  ">
-        <div class="vs-hero-carousel hero_slider_layer position-relative" data-navprevnext="true" data-height="800" data-container="1900"
-            data-slidertype="responsive">
+        <div class="vs-hero-carousel hero_slider_layer position-relative" data-navprevnext="true" data-height="800"
+            data-container="1900" data-slidertype="responsive">
             <% sliders.forEach(slider=> { %>
                 <div class="ls-slide" data-ls="duration: 13000; transition2d: 5;">
                     <img src="/uploads/<%= slider.sliderImage %>" alt="Hero Image" class="ls-bg">
@@ -44,37 +44,24 @@
         <div class="parallax" data-parallax-image="assets/img/bg/bg-7.jpg"></div>
         <div class="container">
             <div class="row flex-row-reverse align-items-center">
+                <% about.forEach(about=> { %>
                 <div class="col-lg-6 mb-40 mb-lg-0">
                     <div>
-                        <iframe width="560" height="315"
-                            src="https://www.youtube.com/embed/JjARsrG1GQQ?si=8OwY3jfBT3b0_AsY"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <img src="/uploads/<%= about.aboutImage %>" alt="about">
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center">
                     <div class="about-content mb-2 ">
-                        <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">How CHRM portal works ?</span>
-                        <p class="pt-2">Know All About Our Best Cardiologist & Heart Specialist CHRM System.<br>
-                            Cardiac Second Opinion is a website which has been designed specifically for those who are
-                            seeking for the second
-                            opinion after being advised an intervention which they are not sure of. In India, after
-                            visiting a heart doctor or
-                            surgeon, he likely gets a different opinion which makes him confused about which treatment
-                            he should go for. To fill
-                            this vacuum, Cardiac Second Opinion is designed by making use of algorithms based on
-                            American Heart Association and
-                            European Cardiological Society which have made guidelines which dictate the treatment as per
-                            the disease and not the
-                            doctor. Cardiac Second Opinion has a full team comprising Specialist Interventional
-                            Cardiologists, Cardiac Surgeons,
-                            Bariatric Cardiologists, Electrophysiologists, and Non-Interventional Cardiologists (for
-                            treatment with medicines only)
-                            on its panel.</p>
+                        <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">
+                            <%= about.heading %>
+                        </span>
+                        <p class="pt-2">
+                            <%- about.description %>
+                        </p>
                         <a href="/about" class="vs-btn">Learn More</a>
                     </div>
                 </div>
+                    <% }); %>
             </div>
         </div>
     </section>
@@ -126,7 +113,7 @@
                 <button class="custom_prev_arrow custom-arrow">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-               
+
             </div>
         </div>
     </section>
@@ -235,112 +222,113 @@
                 </div>
                 <div class="col-xl-6 mb-30 pt-30 pt-xl-0">
                     <!-- Form -->
-            <form action="/" method="POST" class="form-wrap1 bg-white wow fadeInUp" data-wow-delay="0.3s"
-                onsubmit="return validateForm(event)">
-                <div class="form-title-box bg-title">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-auto">
-                            <h2 class="h4 mb-1 text-white">Inquire About Products</h2>
-                            <p class="mb-0 text-white-light">We’re Here to Help</p>
+                    <form action="/" method="POST" class="form-wrap1 bg-white wow fadeInUp" data-wow-delay="0.3s"
+                        onsubmit="return validateForm(event)">
+                        <div class="form-title-box bg-title">
+                            <div class="row justify-content-between align-items-center">
+                                <div class="col-auto">
+                                    <h2 class="h4 mb-1 text-white">Inquire About Products</h2>
+                                    <p class="mb-0 text-white-light">We’re Here to Help</p>
+                                </div>
+                                <div class="col-auto d-none d-sm-block">
+                                    <a href="tel:<%= siteSettings[0].number %>" class="ripple-icon style2"><i
+                                            class="fas fa-phone"></i></a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-auto d-none d-sm-block">
-                            <a href="tel:<%= siteSettings[0].number %>" class="ripple-icon style2"><i class="fas fa-phone"></i></a>
+                        <div class="form-box">
+                            <div class="row">
+                                <div class="col-xl-6 form-group">
+                                    <input type="text" id="fullName" name="name" class="form-control style2"
+                                        placeholder="Full Name" required />
+                                    <i class="fal small fa-user"></i>
+                                </div>
+                                <div class="col-xl-6 form-group">
+                                    <input type="email" id="emailAddress" name="email" class="form-control style2"
+                                        placeholder="Email Address" required />
+                                    <i class="fal small fa-envelope"></i>
+                                </div>
+                                <div class="col-xl-6 form-group">
+                                    <input type="tel" id="phoneNumber" name="phone" class="form-control style2"
+                                        placeholder="Phone Number" required />
+                                    <i class="fal small fa-phone"></i>
+                                </div>
+                                <div class="col-xl-6 form-group">
+                                    <input type="password" id="userPassword" name="password" class="form-control style2"
+                                        placeholder="Password" required />
+                                    <i class="fal small fa-lock"></i>
+                                </div>
+                                <div class="col-xl-12 form-group">
+                                    <textarea id="userMessage" name="message" class="form-control style2"
+                                        placeholder="Message" required></textarea>
+                                </div>
+                                <div class="col-xl-12 text-center">
+                                    <button type="submit" class="vs-btn style2">
+                                        Submit Inquiry <i class="far fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="form-box">
-                    <div class="row">
-                        <div class="col-xl-6 form-group">
-                            <input type="text" id="fullName" name="name" class="form-control style2" placeholder="Full Name"
-                                required />
-                            <i class="fal small fa-user"></i>
-                        </div>
-                        <div class="col-xl-6 form-group">
-                            <input type="email" id="emailAddress" name="email" class="form-control style2"
-                                placeholder="Email Address" required />
-                            <i class="fal small fa-envelope"></i>
-                        </div>
-                        <div class="col-xl-6 form-group">
-                            <input type="tel" id="phoneNumber" name="phone" class="form-control style2"
-                                placeholder="Phone Number" required />
-                            <i class="fal small fa-phone"></i>
-                        </div>
-                        <div class="col-xl-6 form-group">
-                            <input type="password" id="userPassword" name="password" class="form-control style2"
-                                placeholder="Password" required />
-                            <i class="fal small fa-lock"></i>
-                        </div>
-                        <div class="col-xl-12 form-group">
-                            <textarea id="userMessage" name="message" class="form-control style2" placeholder="Message"
-                                required></textarea>
-                        </div>
-                        <div class="col-xl-12 text-center">
-                            <button type="submit" class="vs-btn style2">
-                                Submit Inquiry <i class="far fa-paper-plane"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
+                    </form>
                 </div>
             </div>
 
         </div>
     </section>
-        <!--==============================
+    <!--==============================
     Testimonial Area
     ==============================-->
-        <section class="testimonial-wrapper space-bottom">
-            <div class="container">
-                <div class="row  text-center justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="section-title">
-                            <span class="h3 text-theme sec-subtitle">Testimonial</span>
+    <section class="testimonial-wrapper space-bottom">
+        <div class="container">
+            <div class="row  text-center justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="section-title">
+                        <span class="h3 text-theme sec-subtitle">Testimonial</span>
                         <h2 class="h1">What Customers Say</h2>
-                        <p>Experience the innovation of our electronic socket solutions, designed to simplify your life and enhance
+                        <p>Experience the innovation of our electronic socket solutions, designed to simplify your life
+                            and enhance
                             connectivity. Trusted by thousands of satisfied customers worldwide.</p>
 
-                        </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="row  testimonial-slider wow fadeInUp" data-wow-delay="0.3s" data-slide-show="2">
-                            <% testimonials.forEach(testimonial=> { %>
-                                <div class="col-xl-6">
-                                    <div class="testimonial-box mb-30 bg-white">
-                                        <div class="content">
-                                            <p class="fs-md text-truncate"><%- testimonial.description %></p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="row  testimonial-slider wow fadeInUp" data-wow-delay="0.3s" data-slide-show="2">
+                        <% testimonials.forEach(testimonial=> { %>
+                            <div class="col-xl-6">
+                                <div class="testimonial-box mb-30 bg-white">
+                                    <div class="content">
+                                        <p class="fs-md text-truncate"><%- testimonial.description %></p>
+                                    </div>
+                                    <div class="author-img">
+                                        <div class="avater-line"></div>
+                                        <div class="avater">
+                                            <img src="/uploads/<%= testimonial.testimonialImage %>" alt="Author Image">
                                         </div>
-                                        <div class="author-img">
-                                            <div class="avater-line"></div>
-                                            <div class="avater">
-                                                <img src="/uploads/<%= testimonial.testimonialImage %>"
-                                                    alt="Author Image">
-                                            </div>
+                                    </div>
+                                    <div class="author-info">
+                                        <div class="info">
+                                            <h3 class="fs-20 name">
+                                                <%= testimonial.name %>
+                                            </h3>
                                         </div>
-                                        <div class="author-info">
-                                            <div class="info">
-                                                <h3 class="fs-20 name">
-                                                    <%= testimonial.name %>
-                                                </h3>
-                                            </div>
-                                            <div class="testi-rating">
-                                                <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                    <span style="width:100%">Rated <strong class="rating">5.00</strong>
-                                                        out of 5</span>
-                                                </div>
+                                        <div class="testi-rating">
+                                            <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                                <span style="width:100%">Rated <strong class="rating">5.00</strong>
+                                                    out of 5</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <% }); %>
+                            </div>
+                            <% }); %>
 
-                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     </div>
     <!--==============================
     Blog Area

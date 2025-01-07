@@ -204,86 +204,119 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-10 flex-column col-lg-9 bg_gray h-100 col-12 mb-3 pt-3 px-4 overflow_scroll d-flex">
-                    <% if (message) { %>
-                        <div class="alert d-flex justify-content-between alert-dismissible fade show alert-<%= message.type %>"
-                            role="alert">
-                            <strong>
-                                <%= message.message %>
-                            </strong>
-                            <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                        <% } %>
-                            <h2>All Pages</h2>
-                            <!-- Static Table -->
-                            <table style="min-width: 700px;">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Page url</th>
-                                        <th>Heading</th>
-                                        <th>Image</th>
-                                        <th>Description</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% pages.forEach((page, index)=> { %>
-                                        <tr>
-                                            <td>
-                                                <%= index + 1 %>
-                                            </td>
-                                            <td>
-                                                <%= page.name %>
-                                            </td>
-                                            <td>
-                                                <a href="/<%= page.url %>">
-                                                    <%= page.url %>
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <%= page.heading %>
-                                            </td>
+                <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 overflow_scroll d-flex justify-content-center">
+                    <div class="w-100 mt-3 p-3">
+                        <h2>Add About</h2>
+                        <form action="/admin/add-about" method="POST" enctype="multipart/form-data" id="blogForm">
+                            <!-- Blog Heading Input -->
+                            <div class="mb-3">
+                                <label for="blogHeading" class="form-label">About Heading</label>
+                                <input type="text" name="heading" class="form-control" id="blogHeading"
+                                    placeholder="Enter Blog Heading" required>
+                            </div>
 
-                                            <td>
-                                                <img src="/uploads/<%= page.pageImage %>"
-                                                    alt="Page Image <%= index + 1 %>" width="150">
-                                            </td>
-                                            <td class="text-truncate">
-                                                <%= page.description %>
-                                            </td>
-                                            <td style="padding: 10px;">
-                                                <% if (page.status==='active' ) { %>
-                                                    <span class="badge"
-                                                        style="background-color: #28a745; color: white; padding: 5px 10px;">Active</span>
-                                                    <% } else { %>
-                                                        <span class="badge"
-                                                            style="background-color: #dc3545; color: white; padding: 5px 10px;">Deactive</span>
-                                                        <% } %>
-                                            </td>
-                                            <td>
-                                                <a href="/admin/update-page/<%= page._id %>">
-                                                    <button class="icon-btn">
-                                                        <i class="fas fa-edit"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="/admin/delete-page/<%= page._id %>">
-                                                    <button class="icon-btn">
-                                                        <i class="fas fa-trash"></i>
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <% }); %>
-                                </tbody>
-                            </table>
+                            <!-- Image Field -->
+                            <div class="mb-3">
+                                <label for="aboutImage" class="form-label">About Image</label><br />
+                                <input id="aboutImage" type="file" name="aboutImage" />
+                            </div>
 
+                            <!-- Blog Description Input (with TinyMCE Editor) -->
+                            <div class="mb-3">
+                                <label for="description" class="form-label">About Description</label>
+                                <textarea name="description" class="form-control" id="description" rows="1"
+                                    placeholder="Add description" readonly></textarea>
+                            </div>
 
+                            <!-- SEO Section -->
+                            <h5 class="bg-success p-2 rounded-2 text-white">SEO Information</h5>
 
+                            <!-- SEO Title Input -->
+                            <div class="mb-3">
+                                <label for="seoTitle" class="form-label">SEO Title</label>
+                                <input type="text" name="seoTitle" class="form-control" id="seoTitle"
+                                    placeholder="Enter SEO Title" required>
+                            </div>
+
+                            <!-- SEO Keywords Input -->
+                            <div class="mb-3">
+                                <label for="seoKeywords" class="form-label">SEO Keywords</label>
+                                <input type="text" name="seoKeywords" class="form-control" id="seoKeywords"
+                                    placeholder="Enter SEO Keywords" required>
+                            </div>
+
+                            <!-- SEO Description Input (with TinyMCE Editor) -->
+                            <div class="mb-3">
+                                <label for="seoDescription" class="form-label">SEO Description</label>
+                                <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
+                                    placeholder="Enter SEO Description" readonly></textarea>
+                            </div>
+                            <!-- Status Dropdown Input -->
+                            <div class="mb-3">
+                                <label for="statusDropdown" class="form-label">Status</label>
+                                <div class="dropdown">
+                                    <select class="form-select" name="status" id="statusDropdown" required>
+                                        <option value="" selected disabled>-- Select Status --</option>
+                                        <option value="active">Active &#10004;</option>
+                                        <option value="deactive">Deactive &#10004;</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn submit_btn btn-primary w-100 mb-4">Submit</button>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <%- include('../layout/admin-footer.ejs') %>
+        <script>
+            tinymce.init({
+                selector: '#description, #seoDescription',
+                plugins: 'advlist autolink lists link image charmap print preview anchor',
+                toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+                setup: function (editor) {
+                    editor.on('init', function () {
+                        console.log('TinyMCE initialized');
+                        // Make sure the textarea is visible
+                        document.querySelector('#description').style.display = 'block';
+                        document.querySelector('#seoDescription').style.display = 'block';
+                    });
+                }
+            });
+
+            const form = document.querySelector('#blogForm');
+            form.addEventListener('submit', (event) => {
+                const descriptionTextarea = document.querySelector('#description');
+                const seoDescriptionTextarea = document.querySelector('#seoDescription');
+
+                // Get content from TinyMCE editors
+                const descriptionContent = tinymce.get('description').getContent();
+                const seoDescriptionContent = tinymce.get('seoDescription').getContent();
+
+                // Ensure TinyMCE content is transferred to the textareas before submitting
+                descriptionTextarea.value = descriptionContent;
+                seoDescriptionTextarea.value = seoDescriptionContent;
+
+                // Check if either description or seoDescription is empty
+                if (!descriptionContent.trim()) {
+                    alert('Description is required.');
+                    event.preventDefault();  // Prevent form submission
+                    descriptionTextarea.focus();
+                    return;
+                }
+
+                if (!seoDescriptionContent.trim()) {
+                    alert('SEO Description is required.');
+                    event.preventDefault();  // Prevent form submission
+                    seoDescriptionTextarea.focus();
+                    return;
+                }
+
+                console.log('Description:', descriptionContent);
+                console.log('SEO Description:', seoDescriptionContent);
+            });
+        </script>
