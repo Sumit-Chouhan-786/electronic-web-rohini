@@ -130,6 +130,11 @@
             </div>
         </div>
     </div>
+
+    <div class="side_social cursor_pointer">
+        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i class="fa-solid fa-phone cursor_pointer"></i></a>
+        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i class="fa-brands fa-whatsapp cursor_pointer"></i></a>
+    </div>
     <!--==============================
             Header Area
         ==============================-->
@@ -142,7 +147,7 @@
                         <ul class="header-top-info list-unstyled m-0">
                             <li><i class="far fa-envelope"></i><a href="<%= siteSettings[0].email %>"
                                     class="text-reset"><%= siteSettings[0].email %></a></li>
-                            <li><i class="far fa-phone"></i><a href="tel:<%= siteSettings[0].number %>"
+                            <li><i class="fa fa-phone"></i><a href="tel:<%= siteSettings[0].number %>"
                                     class="text-reset"><%= siteSettings[0].number %></a></li>
                         </ul>
                     </div>
@@ -254,4 +259,5 @@
                 </div>
             </div>
         </div>
+        
     </header>
