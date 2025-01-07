@@ -78,6 +78,7 @@ router.get("/blog-details/:id", async (req, res) => {
 // Route to fetch and render details for a specific service
 router.get("/service-details/:id", async (req, res) => {
   try {
+    const allServices = await getAllServicesIndex.getAllServicesIndex();
     const serviceId = req.params.id; // Extract the service ID from the URL
     const service = await getAllServicesIndex.getService(serviceId); // Fetch specific service by ID
 
@@ -90,10 +91,13 @@ router.get("/service-details/:id", async (req, res) => {
       });
     }
 
-    console.log("Service Details:", service);
+    console.log("Service Details:", service, allServices);
 
     // Render the service-details page with the fetched service data
-    res.render("../views/user-ui/service-details.ejs", { service });
+    res.render("../views/user-ui/service-details.ejs", {
+      service,
+      allServices,
+    });
   } catch (err) {
     console.error("Error fetching service details:", err.message);
 

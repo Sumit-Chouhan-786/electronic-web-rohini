@@ -7,10 +7,10 @@ const createAppointment = async (req, res) => {
     console.log("Received form data:", req.body); // Log the incoming data
 
     // Extract fields from the request body
-    const { name, email, phone, password, message } = req.body;
+    const { name, email, phone, subject, message } = req.body;
 
     // Validate required fields
-    if (!name || !email || !phone || !password || !message) {
+    if (!name || !email || !phone || !subject || !message) {
       return res.status(400).json({ message: "All fields are required." });
     }
 
@@ -23,7 +23,7 @@ const createAppointment = async (req, res) => {
       name,
       email,
       phone,
-      password,
+      subject,
       message,
     });
 

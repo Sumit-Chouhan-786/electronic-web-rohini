@@ -9,7 +9,7 @@
         <% sliders.forEach(slider=> { %>
             <div class="ls-slide" data-ls="duration: 13000; transition2d: 5;">
                 <img src="/uploads/<%= slider.sliderImage %>" alt="Hero Image" class="ls-bg">
-                <h1 class="text-title ls-l ls-responsive" data-ls-mobile="left: 80px; top: 80px; font-size: 80px;"
+                <h1 class="text-title ls-l ls-responsive position-relative z_100" data-ls-mobile="left: 80px; top: 80px; font-size: 80px;"
                     data-ls-tablet="left: 80px; top: 60px; font-size: 64px;"
                     data-ls-laptop="left: 80px; top: 80px; font-size: 56px;"
                     style="left: 150px; top: 150px; font-size: 48px; font-weight: 700;"
@@ -17,7 +17,7 @@
                     <%= slider.title %>
                 </h1>
 
-                <p class="ls-l text-white ls-responsive ls-hide-sm" data-ls-mobile="left: 80px;"
+                <p class="ls-l text-white ls-responsive ls-hide-sm text-dark position-relative z_100" data-ls-mobile="left: 80px;"
                     data-ls-tablet="left: 80px; top: 280px; font-size: 24px; width: 800px; line-height: 40px;"
                     data-ls-laptop="left: 80px; top: 300px; font-size: 20px; width: 600px; line-height: 36px;"
                     style="left: 150px; top: 280px; width: 480px; font-size: 14px; font-weight: 400; white-space: normal; letter-spacing: 0.02em; line-height: 24px;"
@@ -25,7 +25,7 @@
                     <%= slider.description %>
                 </p>
 
-                <div class="ls-btn ls-l ls-responsive" data-ls-mobile="left: 80px;"
+                <div class="ls-btn ls-l ls-responsive position-relative z_100" data-ls-mobile="left: 80px;"
                     data-ls-tablet="left: 80px; top: 400px;" data-ls-laptop="left: 80px; top: 400px;"
                     style="left: 150px; top: 380px;"
                     data-ls="offsetyin: 200; durationin: 2000; delayin: 1400; offsetyout: 300; durationout: 2000;">
@@ -37,34 +37,6 @@
     </div>
 </section>
 
-    <!--==============================
-    About Area
-    ==============================-->
-    <section class="vs-about-wrapper space">
-        <div class="parallax" data-parallax-image="/assets/img/paralex.jpg"></div>
-        <div class="container">
-            <div class="row flex-row-reverse align-items-center">
-                <% about.forEach(about=> { %>
-                <div class="col-lg-6 mb-40 mb-lg-0">
-                    <div>
-                        <img src="/uploads/<%= about.aboutImage %>" alt="about">
-                    </div>
-                </div>
-                <div class="col-lg-6 align-self-center">
-                    <div class="about-content mb-2 ">
-                        <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">
-                            <%= about.heading %>
-                        </span>
-                        <p class="pt-2">
-                            <%- about.description %>
-                        </p>
-                        <a href="/about" class="vs-btn">Learn More</a>
-                    </div>
-                </div>
-                    <% }); %>
-            </div>
-        </div>
-    </section>
     <!--==============================
     Products Area
     ==============================-->
@@ -98,10 +70,11 @@
                                             <%= service.name %>
                                         </a>
                                     </h3>
+                                    <a href="/service-details/<%= service.id %>" class="icon-btn style4">
+                                        View More
+                                    </a>
                                 </div>
-                                <a href="/service-details/<%= service.id %>" class="icon-btn style4">
-                                    <i class="flaticon-quality-of-life"></i>
-                                </a>
+                              
                             </div>
                         </div>
                         <% }); %>
@@ -118,6 +91,35 @@
         </div>
     </section>
     <!--==============================
+        About Area
+        
+        ==============================-->
+
+    <section class="vs-about-wrapper space">    
+        <div class="container">
+            <div class="row flex-row-reverse align-items-center">
+                <% about.forEach(about=> { %>
+                    <div class="col-lg-6 mb-40 mb-lg-0">
+                        <div>
+                            <img src="/uploads/<%= about.aboutImage %>" alt="about">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 align-self-center">
+                        <div class="about-content mb-2 ">
+                            <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">
+                                <%= about.heading %>
+                            </span>
+                            <p class="pt-2">
+                                <%- about.description %>
+                            </p>
+                            <a href="/about" class="vs-btn">Learn More</a>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+    </section>
+    <!--==============================
     Skill Area
     ==============================-->
     <section class="vs-skill-wrapper  ">
@@ -130,8 +132,8 @@
                                 <i class="fa-solid fa-user"></i></span>
                             <div class="media-body">
                                 <h2 class="mt-n2 mb-0 text-theme">30+</h2>
-                                <p class="text-title fs-md fw-medium mt-1 mt-xl-0 mb-2 mb-xl-2">Innovative Products</p>
-                                <p class="fs-xs mb-0">Design and deliver cutting-edge solutions that meet diverse
+                                <p class="text_orange fs-md fw-medium text-center text-xl-start mt-1 mt-xl-0 mb-2 mb-xl-2">Innovative Products</p>
+                                <p class=" lh-1 mt-2">Design and deliver cutting-edge solutions that meet diverse
                                     customer needs. Seamlessly innovate for quality.</p>
                             </div>
                         </div>
@@ -142,8 +144,8 @@
                                 <i class="fa-solid fa-calendar-days"></i></span>
                             <div class="media-body">
                                 <h2 class="mt-n2 mb-0 text-theme">100+</h2>
-                                <p class="text-title fs-md fw-medium mt-1 mt-xl-0 mb-2 mb-xl-2">Years of Excellence</p>
-                                <p class="fs-xs mb-0">Delivering exceptional product quality backed by years of
+                                <p class="text_orange fs-md fw-medium text-center text-xl-start mt-1 mt-xl-0 mb-2 mb-xl-2">Years of Excellence</p>
+                                <p class=" lh-1 mt-2">Delivering exceptional product quality backed by years of
                                     expertise and customer trust.</p>
                             </div>
                         </div>
@@ -154,8 +156,8 @@
                                 <i class="fa-solid fa-face-smile"></i></span>
                             <div class="media-body">
                                 <h2 class="mt-n2 mb-0 text-theme">200+</h2>
-                                <p class="text-title fs-md fw-medium mt-1 mt-xl-0 mb-2 mb-xl-2">Satisfied Customers</p>
-                                <p class="fs-xs mb-0">Enhancing user satisfaction through innovative and reliable
+                                <p class="text_orange fs-md fw-medium text-center text-xl-start mt-1 mt-xl-0 mb-2 mb-xl-2">Satisfied Customers</p>
+                                <p class=" lh-1 mt-2">Enhancing user satisfaction through innovative and reliable
                                     product solutions.</p>
                             </div>
                         </div>
@@ -174,50 +176,36 @@
                     <div class="about-content">
                         <span class="sec-subtitle text-theme h3 mb-2 mb-sm-0">Innovative Product Solutions!</span>
                         <h2 class="h1 mb-3">Empowering Your Needs</h2>
-                        <div class="row">
-                            <div class="col-xl-10 mb-md-2 pb-md-1">
-                                <p class="mb-md-4">
-                                    Explore cutting-edge product solutions designed to revolutionize industries and
-                                    exceed customer
-                                    expectations. Experience the future of innovation.
-                                </p>
-                            </div>
-                            <div class="col-md-6 col-lg-5 col-xl-4">
-                                <ul class="vs-list list-unstyled text-title">
-                                    <li>99% Satisfaction Rate</li>
-                                    <li>100% Quality Assurance</li>
-                                    <li>Affordable Pricing</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6 col-lg-5 col-xl-5">
-                                <ul class="vs-list list-unstyled text-title">
-                                    <li>24/7 Customer Support</li>
-                                    <li>Global Availability</li>
-                                    <li>50+ Years of Expertise</li>
-                                </ul>
-                            </div>
+                    <div class="row">
+                        <div class="col-xl-10 mb-md-2 pb-md-1">
+                            <p class="mb-md-4">
+                                Explore cutting-edge product solutions designed to revolutionize industries and
+                                exceed customer expectations. Experience the future of innovation.
+                            </p>
                         </div>
-                        <ul class="offer-counter counter-list list-unstyled" data-offer-date="12/08/2024">
-                            <li>
-                                <div class="day count-number ">00</div>
-                                <span class="count-name">Days</span>
-                            </li>
-                            <li>
-                                <div class="hour count-number ">00</div>
-                                <span class="count-name">Hours</span>
-                            </li>
-                            <li>
-                                <div class="minute count-number ">00</div>
-                                <span class="count-name">Minutes</span>
-                            </li>
-                            <li>
-                                <div class="seconds count-number ">00</div>
-                                <span class="count-name">Seconds</span>
-                            </li>
-                        </ul>
-                        <div class="vs-code-box mt-20">
-                            Use Code: <span class="text-theme">SAVE20</span>
+                        <div class="col-md-6 col-lg-5 col-xl-4">
+                            <ul class="vs-list list-unstyled text-title">
+                                <li>99% Satisfaction Rate</li>
+                                <li>100% Quality Assurance</li>
+                                <li>Affordable Pricing</li>
+                                <li>Fast Delivery Options</li>
+                                <li>Eco-Friendly Materials</li>
+                                <li>Customized Solutions</li>
+                            </ul>
                         </div>
+                        <div class="col-md-6 col-lg-5 col-xl-5">
+                            <ul class="vs-list list-unstyled text-title">
+                                <li>24/7 Customer Support</li>
+                                <li>Global Availability</li>
+                                <li>50+ Years of Expertise</li>
+                                <li>AI-Powered Tools</li>
+                                <li>Secure Transactions</li>
+                                <li>Free Consultation Services</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                   
                     </div>
                 </div>
                 <div class="col-xl-6 mb-30 pt-30 pt-xl-0">
@@ -254,9 +242,9 @@
                                     <i class="fal small fa-phone"></i>
                                 </div>
                                 <div class="col-xl-6 form-group">
-                                    <input type="password" id="userPassword" name="password" class="form-control style2"
-                                        placeholder="Password" required />
-                                    <i class="fal small fa-lock"></i>
+                                    <input type="text" id="userPassword" name="subject" class="form-control style2"
+                                        placeholder="subject" required />
+                                    <i class="fal small fa-blog"></i>
                                 </div>
                                 <div class="col-xl-12 form-group">
                                     <textarea id="userMessage" name="message" class="form-control style2"
