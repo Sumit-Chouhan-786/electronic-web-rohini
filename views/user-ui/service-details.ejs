@@ -335,14 +335,16 @@
                             </div>
                             <div class="sr-content">
                                 <!-- Dynamically render service name and link -->
-                                <h3 class="h5">
+                                <h3 class="h5 mt-2">
                                     <a class="text-reset" href="/service-details/<%= service.id %>">
                                         <%= service.name %>
                                     </a>
                                 </h3>
-                                <a href="/service-details/<%= service.id %>" class="icon-btn style4">
-                                    View More
-                                </a>
+                                <div class="sr-content">
+                                    <a href="/service-details/<%= service.id %>" class="link-btn">
+                                        View More<i class="fal fa-long-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
 
                         </div>

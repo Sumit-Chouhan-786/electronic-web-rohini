@@ -18350,19 +18350,22 @@ body {
   top: 50%;
   right: 0;
   display: flex;
-  padding:8px;
+  padding:10px;
   z-index: 9999;
-  gap: 4px;
-  border-radius: 10px 0 0 10px;
+  border-radius: 8px 0 0 8px;
   flex-direction: column;
   background-color: #000000;
   transform: translateY(-50%);
 }
-.side_social i{
-  font-size: 26px;
-  padding: 10px;
-   cursor: pointer !important;
+.side_social i {
+  font-size: 26px; 
+  padding: 8px;
+  cursor: pointer !important;
   color: var(--theme-color3);
+}
+
+.side_social a:first-child  i {
+  font-size: 22px !important; 
 }
 
 .hero_slider .ls-slide {
