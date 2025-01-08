@@ -8,19 +8,15 @@ const testimonialSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
     },
     seoTitle: {
       type: String,
-      required: true,
     },
     seoKeywords: {
       type: String,
-      required: true,
     },
     seoDescription: {
       type: String,
-      required: true,
     },
     testimonialImage: {
       type: String,

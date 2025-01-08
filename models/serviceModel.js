@@ -18,15 +18,12 @@ const ServiceSchema = new mongoose.Schema(
     },
     seoTitle: {
       type: String,
-      required: true,
     },
     seoKeywords: {
       type: String,
-      required: true,
     },
     seoDescription: {
       type: String,
-      required: true,
     },
     category: {
       type: String,

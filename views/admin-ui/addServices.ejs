@@ -15,7 +15,7 @@
             <a class="text-white d-flex align-items-center gap-2" href="/admin/logout">Logout<i
                     class="fa-solid fa-right-from-bracket pt-1"></i></a>
         </nav>
-        <div class="flex-grow-1 overflow-hidden">
+        <div class="flex-grow-1 overflow-hidden d-flex">
             <div class="col-xl-2 h-100 col-lg-3 px-0 overflow_scroll sidebar_col bg-light">
                 <div class="sidebar">
                     <div class="accordion overflow_x_hidden" id="accordionExample">
@@ -203,6 +203,81 @@
                     </div>
                 </div>
             </div>
+        <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 overflow_scroll d-flex justify-content-center">
+            <div class="w-100 mt-3 p-3">
+                <h2>Add Service</h2>
+                <form action="/admin/add-service" method="POST" enctype="multipart/form-data" id="serviceForm">
+                    <!-- Service Name Input -->
+                    <div class="mb-3">
+                        <label for="serviceName" class="form-label">Service Name</label>
+                        <input type="text" name="name" class="form-control" id="serviceName" placeholder="Enter Service Name"
+                            required>
+                    </div>
+        
+                    <!-- Service Image Field -->
+                    <div class="mb-3">
+                        <label for="serviceImage" class="form-label">Service Image</label><br />
+                        <input id="serviceImage" type="file" name="image" required />
+                    </div>
+        
+                    <!-- Service Description Input -->
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Service Description</label>
+                        <textarea name="description" class="form-control" id="description" rows="1"
+                            placeholder="Enter Service Description" readonly></textarea>
+                    </div>
+        
+                    <!-- Service Category Dropdown Input -->
+                    <div class="mb-3">
+                        <label for="categoryDropdown" class="form-label">Category</label>
+                        <select class="form-select" name="category" id="categoryDropdown" required>
+                            <option value="" disabled selected>Select a Category</option>
+                            <option value="Adult cardiac disease">Adult Cardiac Disease</option>
+                            <option value="Pediatric Cardiac Disease">Pediatric Cardiac Disease</option>
+                            <option value="Cardiac Arrhythmia">Cardiac Arrhythmia</option>
+                            <option value="Heart Failure">Heart Failure</option>
+                        </select>
+                    </div>
+        
+                    <!-- SEO Section -->
+                    <h5 class="bg-success p-2 rounded-2 text-white">SEO Information</h5>
+        
+                    <!-- SEO Title Input -->
+                    <div class="mb-3">
+                        <label for="seoTitle" class="form-label">SEO Title</label>
+                        <input type="text" name="seoTitle" class="form-control" id="seoTitle" placeholder="Enter SEO Title"
+                            >
+                    </div>
+        
+                    <!-- SEO Keywords Input -->
+                    <div class="mb-3">
+                        <label for="seoKeywords" class="form-label">SEO Keywords</label>
+                        <input type="text" name="seoKeywords" class="form-control" id="seoKeywords"
+                            placeholder="Enter SEO Keywords" >
+                    </div>
+        
+                    <!-- SEO Description Input -->
+                    <div class="mb-3">
+                        <label for="seoDescription" class="form-label">SEO Description</label>
+                        <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
+                            placeholder="Enter SEO Description" readonly></textarea>
+                    </div>
+        
+                    <!-- Status Dropdown Input -->
+                    <div class="mb-3">
+                        <label for="statusDropdown" class="form-label">Status</label>
+                        <select class="form-select" name="status" id="statusDropdown" >
+                            <option value="active">Active &#10004;</option>
+                            <option value="deactive">Deactive &#10004;</option>
+                        </select>
+                    </div>
+        
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn submit_btn btn-primary w-100 mb-4">Add Service</button>
+                </form>
+            </div>
+        </div>
+
         </div>
     </section>
     <%- include('../layout/admin-footer.ejs') %>
@@ -242,12 +317,7 @@
                     return;
                 }
 
-                if (!seoDescriptionContent.trim()) {
-                    alert('SEO Description is required.');
-                    event.preventDefault();  // Prevent form submission
-                    seoDescriptionTextarea.focus();
-                    return;
-                }
+             
 
                 console.log('Description:', descriptionContent);
                 console.log('SEO Description:', seoDescriptionContent);

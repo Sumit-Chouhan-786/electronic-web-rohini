@@ -15,15 +15,12 @@ const blogSchema = new mongoose.Schema({
   },
   seoTitle: {
     type: String,
-    required: true,
   },
   seoKeywords: {
     type: String,
-    required: true,
   },
   seoDescription: {
     type: String,
-    required: true,
   },
   blogImage: {
     type: String,

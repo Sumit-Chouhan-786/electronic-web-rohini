@@ -21,15 +21,12 @@
       },
       seoTitle: {
         type: String,
-        required: true,
       },
       seoKeywords: {
         type: String,
-        required: true,
       },
       seoDescription: {
         type: String,
-        required: true,
       },
       pageImage: {
         type: String,
