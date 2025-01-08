@@ -262,14 +262,14 @@
                             <div class="mb-3">
                                 <label for="seoTitle" class="form-label">SEO Title</label>
                                 <input type="text" name="seoTitle" class="form-control" id="seoTitle"
-                                    placeholder="Enter SEO Title" value="<%= service.seoTitle %>" required>
+                                    placeholder="Enter SEO Title" value="<%= service.seoTitle %>" >
                             </div>
 
                             <!-- SEO Keywords Input -->
                             <div class="mb-3">
                                 <label for="seoKeywords" class="form-label">SEO Keywords</label>
                                 <input type="text" name="seoKeywords" class="form-control" id="seoKeywords"
-                                    placeholder="Enter SEO Keywords" value="<%= service.seoKeywords %>" required>
+                                    placeholder="Enter SEO Keywords" value="<%= service.seoKeywords %>" >
                             </div>
 
                             <!-- SEO Description Input -->
@@ -283,7 +283,7 @@
                             <!-- Status Dropdown Input -->
                             <div class="mb-3">
                                 <label for="statusDropdown" class="form-label">Status</label>
-                                <select class="form-select" name="status" id="statusDropdown" required>
+                                <select class="form-select" name="status" id="statusDropdown" >
                                     <option value="active" <%=service.status==='active' ? 'selected' : '' %>>Active
                                         &#10004;</option>
                                     <option value="deactive" <%=service.status==='deactive' ? 'selected' : '' %>
@@ -340,12 +340,6 @@
                     return;
                 }
 
-                if (!seoDescriptionContent.trim()) {
-                    alert('SEO Description is required.');
-                    event.preventDefault();  // Prevent form submission
-                    seoDescriptionTextarea.focus();
-                    return;
-                }
 
                 console.log('Description:', descriptionContent);
                 console.log('SEO Description:', seoDescriptionContent);

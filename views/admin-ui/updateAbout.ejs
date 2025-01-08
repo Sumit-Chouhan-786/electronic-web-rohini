@@ -243,28 +243,28 @@
                         <div class="mb-3">
                             <label for="seoTitle" class="form-label">SEO Title</label>
                             <input type="text" name="seoTitle" class="form-control" id="seoTitle" value="<%= about.seoTitle %>"
-                                placeholder="Enter SEO Title" required>
+                                placeholder="Enter SEO Title" >
                         </div>
                     
                         <!-- SEO Keywords Input -->
                         <div class="mb-3">
                             <label for="seoKeywords" class="form-label">SEO Keywords</label>
                             <input type="text" name="seoKeywords" class="form-control" id="seoKeywords" value="<%= about.seoKeywords %>"
-                                placeholder="Enter SEO Keywords" required>
+                                placeholder="Enter SEO Keywords" >
                         </div>
                     
                         <!-- SEO Description Input (with TinyMCE Editor) -->
                         <div class="mb-3">
                             <label for="seoDescription" class="form-label">SEO Description</label>
                             <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
-                                placeholder="Enter SEO Description" required readonly><%= about.seoDescription %></textarea>
+                                placeholder="Enter SEO Description"  readonly><%= about.seoDescription %></textarea>
                         </div>
                     
                         <!-- Status Dropdown Input -->
                         <div class="mb-3">
                             <label for="statusDropdown" class="form-label">Status</label>
                             <div class="dropdown">
-                                <select class="form-select" name="status" id="statusDropdown" required>
+                                <select class="form-select" name="status" id="statusDropdown" >
                                     <option value="" disabled>-- Select Status --</option>
                                     <option value="active" <%=about.status==="active" ? "selected" : "" %>>Active &#10004;</option>
                                     <option value="deactive" <%=about.status==="deactive" ? "selected" : "" %>>Deactive &#10004;</option>
@@ -319,12 +319,6 @@
                     return;
                 }
 
-                if (!seoDescriptionContent.trim()) {
-                    alert('SEO Description is required.');
-                    event.preventDefault();  // Prevent form submission
-                    seoDescriptionTextarea.focus();
-                    return;
-                }
 
                 console.log('Description:', descriptionContent);
                 console.log('SEO Description:', seoDescriptionContent);

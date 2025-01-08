@@ -250,14 +250,14 @@
                             <div class="mb-3">
                                 <label for="seoTitle" class="form-label">SEO Title</label>
                                 <input type="text" name="seoTitle" class="form-control" id="seoTitle"
-                                    placeholder="Enter SEO Title" required>
+                                    placeholder="Enter SEO Title" >
                             </div>
 
                             <!-- SEO Keywords Input -->
                             <div class="mb-3">
                                 <label for="seoKeywords" class="form-label">SEO Keywords</label>
                                 <input type="text" name="seoKeywords" class="form-control" id="seoKeywords"
-                                    placeholder="Enter SEO Keywords" required>
+                                    placeholder="Enter SEO Keywords" >
                             </div>
 
                             <!-- SEO Description Input (with TinyMCE Editor) -->
@@ -271,7 +271,7 @@
                             <div class="mb-3">
                                 <label for="statusDropdown" class="form-label">Status</label>
                                 <div class="dropdown">
-                                    <select class="form-select" name="status" id="statusDropdown" required>
+                                    <select class="form-select" name="status" id="statusDropdown" >
                                         <option value="" selected disabled>-- Select Status --</option>
                                         <option value="active">Active &#10004;</option>
                                         <option value="deactive">Deactive &#10004;</option>
@@ -324,12 +324,7 @@
                     return;
                 }
 
-                if (!seoDescriptionContent.trim()) {
-                    alert('SEO Description is required.');
-                    event.preventDefault();  // Prevent form submission
-                    seoDescriptionTextarea.focus();
-                    return;
-                }
+             
 
                 console.log('Description:', descriptionContent);
                 console.log('SEO Description:', seoDescriptionContent);
