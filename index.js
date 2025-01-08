@@ -5,8 +5,12 @@ const session = require("express-session");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const Page = require("./models/pageModel");
-const { SiteSettingData } = require("./common/common");
-const { AllServicesData } = require("./common/common");
+const {
+  SiteSettingData,
+  AllStaticSeo,
+  AllServicesData,
+} = require("./common/common");
+
 require("./db/connection");
 
 // Routes
@@ -40,6 +44,33 @@ app.use(async (req, res, next) => {
     next();
   }
 });
+app.use(async (req, res, next) => {
+  try {
+    const staticSeo = await AllStaticSeo();
+
+    const homeSeo = staticSeo.filter((seo) => seo.pageType === "home");
+    const aboutSeo = staticSeo.filter((seo) => seo.pageType === "about");
+    const contactSeo = staticSeo.filter((seo) => seo.pageType === "contact");
+    const clientsSeo = staticSeo.filter((seo) => seo.pageType === "clients");
+    const PlugsAndSockets = staticSeo.filter(
+      (seo) => seo.pageType === "Plugs & Sockets"
+    );
+    const blogsSeo = staticSeo.filter((seo) => seo.pageType === "blogs");
+    res.locals.homeSeo = homeSeo;
+    res.locals.aboutSeo = aboutSeo;
+    res.locals.contactSeo = contactSeo;
+    res.locals.clientsSeo = clientsSeo;
+    res.locals.PlugsAndSockets = PlugsAndSockets;
+    res.locals.blogsSeo = blogsSeo;
+
+    // Proceed to the next middleware
+    next();
+  } catch (err) {
+    console.error("Error in site settings middleware:", err);
+    next();
+  }
+});
+
 app.use(async (req, res, next) => {
   try {
     const allServices = await AllServicesData();
@@ -107,8 +138,6 @@ app.use((err, req, res, next) => {
   res.status(500).send("Internal Server Error");
 });
 
-
-
 app.get("/:url", (req, res) => {
   const url = req.params.url;
   console.log("Requested URL:", url);
@@ -116,7 +145,7 @@ app.get("/:url", (req, res) => {
   Page.findOne({ url, status: "active" })
     .then((page) => {
       if (page) {
-        console.log("Page Data:", page); // Log the page data
+        console.log("Page Data:", page);
         res.render("user-ui/dynamicPage.ejs", {
           name: page.name,
           heading: page.heading,
@@ -138,7 +167,7 @@ app.get("/:url", (req, res) => {
 });
 app.all("*", (req, res) => {
   res.render("user-ui/error");
-}); 
+});
 
 // Start the Express server
 app.listen(port, host, () => {

@@ -233,77 +233,78 @@
                 <div class="col-xl-10 col-lg-9 bg_gray h-100 col-12 mb-3 overflow_scroll d-flex justify-content-center">
                     <div class="w-100 mt-3 p-3">
                         <h2>Add Seo</h2>
-            <form action="/admin/add-seo" method="POST"  id="seoForm">
-                <!-- Page Type Selector (Home, About, Contact) -->
-                <div class="mb-3">
-                    <label for="pageType" class="form-label">Page Type</label>
-                    <select name="pageType" class="form-control" id="pageType" required>
-                        <option value="home">Home</option>
-                        <option value="about">About</option>
-                        <option value="contact">Contact</option>
-                    </select>
-                </div>
-            
-                <!-- SEO Title Input -->
-                <div class="mb-3">
-                    <label for="seoTitle" class="form-label">SEO Title</label>
-                    <input type="text" name="seoTitle" class="form-control" id="seoTitle" placeholder="Enter SEO Title" >
-                </div>
-            
-                <!-- SEO Keywords Input -->
-                <div class="mb-3">
-                    <label for="seoKeyword" class="form-label">SEO Keywords</label>
-                    <input type="text" name="seoKeyword" class="form-control" id="seoKeyword" placeholder="Enter SEO Keywords"
-                        >
-                </div>
-            
-                <!-- SEO Description Input (with TinyMCE Editor) -->
-                <div class="mb-3">
-                    <label for="seoDescription" class="form-label">SEO Description</label>
-                    <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
-                        placeholder="Enter SEO Description" ></textarea>
-                </div>
-            
-               
-            
-                <!-- Submit Button -->
-                <button type="submit" class="btn submit_btn btn-primary w-100 mb-4">Submit</button>
-            </form>
+                        <form action="/admin/add-seo" method="POST" id="seoForm">
+                            <!-- Page Type Selector (Home, About, Contact) -->
+                            <div class="mb-3">
+                                <label for="pageType" class="form-label">Page Type</label>
+                                <select name="pageType" class="form-control" id="pageType">
+                                    <option value="home">Home</option>
+                                    <option value="about">About</option>
+                                    <option value="contact">Contact</option>
+                                    <option value="home">clients</option>
+                                    <option value="about">Plugs & Sockets</option>
+                                    <option value="contact">blogs</option>
+                                </select>
+                            </div>
 
-            
-            <%- include('../layout/admin-footer.ejs') %>
-            
-                <script>
-                    tinymce.init({
-                        selector: '#seoDescription', // Corrected the selector
-                        plugins: 'advlist autolink lists link image charmap print preview anchor',
-                        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
-                        setup: function (editor) {
-                            editor.on('init', function () {
-                                console.log('TinyMCE initialized');
-                                document.querySelector('#seoDescription').style.display = 'block';
-                            });
-                        }
-                    });
+                            <!-- SEO Title Input -->
+                            <div class="mb-3">
+                                <label for="seoTitle" class="form-label">SEO Title</label>
+                                <input type="text" name="seoTitle" class="form-control" id="seoTitle"
+                                    placeholder="Enter SEO Title">
+                            </div>
 
-                    const form = document.querySelector('#seoForm');
-                    form.addEventListener('submit', (event) => {
-                        const seoDescriptionTextarea = document.querySelector('#seoDescription'); // Fixed ID reference
+                            <!-- SEO Keywords Input -->
+                            <div class="mb-3">
+                                <label for="seoKeyword" class="form-label">SEO Keywords</label>
+                                <input type="text" name="seoKeyword" class="form-control" id="seoKeyword"
+                                    placeholder="Enter SEO Keywords">
+                            </div>
 
-                        // Get the TinyMCE content (this will update the textarea value)
-                        const seoDescriptionContent = tinymce.get('seoDescription').getContent();
+                            <!-- SEO Description Input (with TinyMCE Editor) -->
+                            <div class="mb-3">
+                                <label for="seoDescription" class="form-label">SEO Description</label>
+                                <textarea name="seoDescription" class="form-control" id="seoDescription" rows="1"
+                                    placeholder="Enter SEO Description" readonly></textarea>
+                            </div>
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn submit_btn btn-primary w-100 mb-4">Submit</button>
+                        </form>
 
-                        // Set the content to the textarea's value (for form submission)
-                        seoDescriptionTextarea.value = seoDescriptionContent;
 
-                        // Check if SEO Description is empty after TinyMCE update
-                        if (!seoDescriptionContent.trim()) {
-                            alert('SEO Description is required.');
-                            event.preventDefault();  // Prevent form submission if content is empty
-                            seoDescriptionTextarea.focus();
-                            return;
-                        }
+                        <%- include('../layout/admin-footer.ejs') %>
 
-                        console.log('SEO Description:', seoDescriptionContent);
-                    });
-                </script>
+                            <script>
+                                tinymce.init({
+                                    selector: '#seoDescription', // Corrected the selector
+                                    plugins: 'advlist autolink lists link image charmap print preview anchor',
+                                    toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+                                    setup: function (editor) {
+                                        editor.on('init', function () {
+                                            console.log('TinyMCE initialized');
+                                            document.querySelector('#seoDescription').style.display = 'block';
+                                        });
+                                    }
+                                });
+
+                                const form = document.querySelector('#seoForm');
+                                form.addEventListener('submit', (event) => {
+                                    const seoDescriptionTextarea = document.querySelector('#seoDescription'); // Fixed ID reference
+
+                                    // Get the TinyMCE content (this will update the textarea value)
+                                    const seoDescriptionContent = tinymce.get('seoDescription').getContent();
+
+                                    // Set the content to the textarea's value (for form submission)
+                                    seoDescriptionTextarea.value = seoDescriptionContent;
+
+                                    // Check if SEO Description is empty after TinyMCE update
+                                    if (!seoDescriptionContent.trim()) {
+                                        alert('SEO Description is required.');
+                                        event.preventDefault();  // Prevent form submission if content is empty
+                                        seoDescriptionTextarea.focus();
+                                        return;
+                                    }
+
+                                    console.log('SEO Description:', seoDescriptionContent);
+                                });
+                            </script>

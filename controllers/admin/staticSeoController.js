@@ -14,12 +14,31 @@ const addStaticSeo = async (req, res) => {
   try {
     const { seoTitle, seoKeyword, seoDescription, pageType } = req.body;
 
+    // Validate that pageType is provided and valid
+    if (
+      !pageType ||
+      ![
+        "home",
+        "about",
+        "contact",
+        "clients",
+        "Plugs & Sockets",
+        "blogs",
+      ].includes(pageType)
+    ) {
+      req.session.message = {
+        type: "danger",
+        message:
+          "Invalid Page Type provided. Please choose between 'home', 'about', or 'contact'.",
+      };
+      return res.redirect("/admin/add-seo");
+    }
+
     const staticSeo = new StaticSeo({
       seoTitle,
-
       seoKeyword,
       seoDescription,
-      pageType, // Add pageType to the StaticSeo object
+      pageType,
     });
 
     await staticSeo.save();
@@ -92,12 +111,31 @@ const updateStaticSeo = async (req, res) => {
     const { id } = req.params;
     const { seoTitle, seoKeyword, seoDescription, pageType } = req.body;
 
+    // Validate that pageType is provided and valid
+    if (
+      !pageType ||
+      ![
+        "home",
+        "about",
+        "contact",
+        "clients",
+        "Plugs & Sockets",
+        "blogs",
+      ].includes(pageType)
+    ) {
+      req.session.message = {
+        type: "danger",
+        message:
+          "Invalid Page Type provided. Please choose between 'home', 'about', or 'contact'.",
+      };
+      return res.redirect(`/admin/update-seo/${id}`);
+    }
+
     await StaticSeo.findByIdAndUpdate(id, {
       seoTitle,
       seoKeyword,
-
       seoDescription,
-      pageType, // Update pageType as well
+      pageType,
     });
 
     req.session.message = {

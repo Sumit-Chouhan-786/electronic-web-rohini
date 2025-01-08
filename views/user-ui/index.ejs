@@ -1,4 +1,279 @@
-<%- include('../layout/ui-header.ejs') %>
+<!doctype html>
+<html lang="eng">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+        <%= homeSeo.length> 0 ? homeSeo[0].seoTitle : 'Default Title' %>
+    </title>
+    <meta name="author" content="Vecuro">
+    <meta name="description" content="<%= homeSeo.length > 0 ? homeSeo[0].seoDescription : 'Default description' %>">
+    <meta name="keywords" content="<%= homeSeo.length > 0 ? homeSeo[0].seoKeyword : 'Default, Keywords' %>">
+    <meta name="robots" content="NOINDEX,NOFOLLOW">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--==============================
+	   Google Web Fonts
+	============================== -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&amp;family=Quicksand:wght@400;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
+
+
+    <!-- Favicons - Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
+
+    <!--==============================
+	    All CSS File
+	============================== -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="assets/css/app.min.css"> -->
+    <!-- Fontawesome Icon -->
+    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
+    <!-- Layerslider -->
+    <link rel="stylesheet" href="/assets/css/layerslider.min.css">
+    <!-- jQuery DatePicker -->
+    <link rel="stylesheet" href="/assets/css/jquery.datetimepicker.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/assets/css/magnific-popup.min.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="/assets/css/slick.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <!--==============================
+        Mobile Menu
+      ============================== -->
+    <div class="vs-menu-wrapper">
+        <div class="vs-menu-area text-center">
+            <button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
+            <div class="mobile-logo">
+                <a href="/"><img style="max-width: 100px;" src="/uploads/<%= siteSettings[0].logo %>" alt="Medixi"></a>
+            </div>
+            <div class="vs-mobile-menu">
+                <ul>
+                    <li class="menu-item-has-children">
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="/about">About Us</a>
+                    </li>
+                    <li>
+                        <a href="/clients">Clients</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="/adult-cardiac-disease">Plugs & Sockets</a>
+                        <ul class="sub-menu">
+                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                <li>
+                                    <a href="/service-details/<%= service._id %>">
+                                        <%= service.name %>
+                                    </a>
+                                </li>
+                                <% }); %>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+
+                    <!-- <li class="menu-item-has-children">
+                    <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
+                    <ul class="sub-menu">
+                        <% pediatricCardiacServices.forEach(service=> { %>
+                            <li><a href="/service-details/<%= service._id %>">
+                                    <%= service.name %>
+                                </a></li>
+                            <% }); %>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a href="/cardiac-arrhythmia">Cardiac Arrhythmia</a>
+                    <ul class="sub-menu">
+                        <% cardiacArrhythmiaServices.forEach(service=> { %>
+                            <li><a href="/service-details/<%= service._id %>">
+                                    <%= service.name %>
+                                </a></li>
+                            <% }); %>
+                    </ul>
+                </li>
+                
+                <li class="menu-item-has-children">
+                    <a href="/heart-failure">Heart Failure</a>
+                    <ul class="sub-menu">
+                        <% heartFailureServices.forEach(service=> { %>
+                            <li><a href="/service-details/<%= service._id %>">
+                                    <%= service.name %>
+                                </a></li>
+                            <% }); %>
+                    </ul>
+                </li> -->
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="side_social cursor_pointer">
+        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
+                class="fa-solid fa-phone cursor_pointer"></i></a>
+        <a class="cursor_pointer" href="https://wa.me/<%= siteSettings[0].number %>"><i
+                class="fa-brands fa-whatsapp cursor_pointer"></i></a>
+    </div>
+    <!--==============================
+            Header Area
+        ==============================-->
+    <header class="header-wrapper header-layout1">
+        <!-- Header Top -->
+        <div class="header-top bg-title py-2 d-none d-md-block">
+            <div class="container container-style1 py-1">
+                <div class="row justify-content-center justify-content-xl-between">
+                    <div class="col-auto">
+                        <ul class="header-top-info list-unstyled m-0">
+                            <li><i class="far fa-envelope"></i><a href="<%= siteSettings[0].email %>"
+                                    class="text-reset">
+                                    <%= siteSettings[0].email %>
+                                </a></li>
+                            <li><i class="fa fa-phone"></i><a href="tel:<%= siteSettings[0].number %>"
+                                    class="text-reset">
+                                    <%= siteSettings[0].number %>
+                                </a></li>
+                        </ul>
+                    </div>
+                    <div class="col-auto d-none d-xl-block">
+                        <ul class="head-top-links text-end">
+                            <li>
+                                <ul class="header-social">
+                                    <li>
+                                        <a href="<%= siteSettings[0].facebook %>"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="<%= siteSettings[0].twitter %>"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href="<%= siteSettings[0].linkedin %>"><i class="fab fa-linkedin-in"></i></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Active -->
+        <div class="sticky-wrap">
+            <div class="sticky-active">
+                <!-- Header Main -->
+                <div class="header-main">
+                    <div class="container container-style1 position-relative">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <div class="header1-logo py-2">
+                                    <a href="/"><img style="max-width: 100px;"
+                                            src="/uploads/<%= siteSettings[0].logo %>" alt="Logo"></a>
+                                </div>
+                            </div>
+                            <div class="col text-end text-lg-center">
+                                <nav
+                                    class="main-menu menu-style1 d-none align-items-center gap-4 d-lg-flex justify-content-end">
+                                    <ul>
+                                        <li>
+                                            <a href="/">Home </a>
+                                        </li>
+                                        <li>
+                                            <a href="/about">About Us</a>
+                                        </li>
+                                        <li>
+                                            <a href="/clients">Clients</a>
+                                        </li>
+                                        <li class="menu-item-has-children">
+                                            <a href="/adult-cardiac-disease">Plugs & Sockets</a>
+                                            <ul class="sub-menu">
+                                                <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                                    <li>
+                                                        <a href="/service-details/<%= service._id %>">
+                                                            <%= service.name %>
+                                                        </a>
+                                                    </li>
+                                                    <% }); %>
+
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="/contact">Contact</a>
+                                        </li>
+
+                                        <!-- <li class="menu-item-has-children">
+                                            <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
+                                            <ul class="sub-menu">
+                                                <% pediatricCardiacServices.forEach(service=> { %>
+                                                    <li><a href="/service-details/<%= service._id %>">
+                                                            <%= service.name %>
+                                                        </a></li>
+                                                    <% }); %>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="menu-item-has-children">
+                                            <a href="/cardiac-arrhythmia">Cardiac Arrhythmia</a>
+                                            <ul class="sub-menu">
+                                                <% cardiacArrhythmiaServices.forEach(service=> { %>
+                                                    <li><a href="/service-details/<%= service._id %>">
+                                                            <%= service.name %>
+                                                        </a></li>
+                                                    <% }); %>
+                                            </ul>
+                                        </li>
+                                        
+                                        <li class="menu-item-has-children">
+                                            <a href="/heart-failure">Heart Failure</a>
+                                            <ul class="sub-menu">
+                                                <% heartFailureServices.forEach(service=> { %>
+                                                    <li><a href="/service-details/<%= service._id %>">
+                                                            <%= service.name %>
+                                                        </a></li>
+                                                    <% }); %>
+                                            </ul>
+                                        </li> -->
+
+                                    </ul>
+                                    <div>
+                                        <a href="/assets/pdf/mypdf.pdf" download
+                                            class="px-2 py-1 text-white rounded-2 fs-6"
+                                            style="background-color: #FF6807;">E
+                                            CATALOGUE</a>
+                                    </div>
+
+                                </nav>
+                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
+                                        class="fas fa-bars"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
 
     <!--==============================
       Hero Area

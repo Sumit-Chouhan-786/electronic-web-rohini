@@ -5,10 +5,12 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>electronic</title>
+    <title>
+        <%= homeSeo.length> 0 ? homeSeo[0].seoTitle : 'Default Title' %>
+    </title>
     <meta name="author" content="Vecuro">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="<%= homeSeo.length > 0 ? homeSeo[0].seoDescription : 'Default description' %>">
+    <meta name="keywords" content="<%= homeSeo.length > 0 ? homeSeo[0].seoKeyword : 'Default, Keywords' %>">
     <meta name="robots" content="NOINDEX,NOFOLLOW">
 
     <!-- Mobile Specific Metas -->
@@ -72,28 +74,28 @@
                     <li>
                         <a href="/about">About Us</a>
                     </li>
-                <li>
-                    <a href="/clients">Clients</a>
-                </li>
-                <li class="menu-item-has-children">
-                    <a href="/adult-cardiac-disease">Plugs & Sockets</a>
-                    <ul class="sub-menu">
-                        <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
-                            <li>
-                                <a href="/service-details/<%= service._id %>">
-                                    <%= service.name %>
-                                </a>
-                            </li>
-                            <% }); %>
-                
-                    </ul>
-                </li>
+                    <li>
+                        <a href="/clients">Clients</a>
+                    </li>
+                    <li class="menu-item-has-children">
+                        <a href="/adult-cardiac-disease">Plugs & Sockets</a>
+                        <ul class="sub-menu">
+                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                <li>
+                                    <a href="/service-details/<%= service._id %>">
+                                        <%= service.name %>
+                                    </a>
+                                </li>
+                                <% }); %>
 
-                <li>
-                    <a href="/contact">Contact</a>
-                </li>
-                
-                <!-- <li class="menu-item-has-children">
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/contact">Contact</a>
+                    </li>
+
+                    <!-- <li class="menu-item-has-children">
                     <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                     <ul class="sub-menu">
                         <% pediatricCardiacServices.forEach(service=> { %>
@@ -125,18 +127,18 @@
                             <% }); %>
                     </ul>
                 </li> -->
-    
+
                 </ul>
             </div>
         </div>
     </div>
 
-<div class="side_social cursor_pointer">
-    <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
-            class="fa-solid fa-phone cursor_pointer"></i></a>
-    <a class="cursor_pointer" href="https://wa.me/<%= siteSettings[0].number %>"><i
-            class="fa-brands fa-whatsapp cursor_pointer"></i></a>
-</div>
+    <div class="side_social cursor_pointer">
+        <a class="cursor_pointer" href="tel:<%= siteSettings[0].number %>"><i
+                class="fa-solid fa-phone cursor_pointer"></i></a>
+        <a class="cursor_pointer" href="https://wa.me/<%= siteSettings[0].number %>"><i
+                class="fa-brands fa-whatsapp cursor_pointer"></i></a>
+    </div>
     <!--==============================
             Header Area
         ==============================-->
@@ -148,9 +150,13 @@
                     <div class="col-auto">
                         <ul class="header-top-info list-unstyled m-0">
                             <li><i class="far fa-envelope"></i><a href="<%= siteSettings[0].email %>"
-                                    class="text-reset"><%= siteSettings[0].email %></a></li>
+                                    class="text-reset">
+                                    <%= siteSettings[0].email %>
+                                </a></li>
                             <li><i class="fa fa-phone"></i><a href="tel:<%= siteSettings[0].number %>"
-                                    class="text-reset"><%= siteSettings[0].number %></a></li>
+                                    class="text-reset">
+                                    <%= siteSettings[0].number %>
+                                </a></li>
                         </ul>
                     </div>
                     <div class="col-auto d-none d-xl-block">
@@ -182,11 +188,13 @@
                         <div class="row align-items-center justify-content-between">
                             <div class="col-auto">
                                 <div class="header1-logo py-2">
-                                    <a  href="/"><img style="max-width: 100px;" src="/uploads/<%= siteSettings[0].logo %>" alt="Logo"></a>
+                                    <a href="/"><img style="max-width: 100px;"
+                                            src="/uploads/<%= siteSettings[0].logo %>" alt="Logo"></a>
                                 </div>
                             </div>
                             <div class="col text-end text-lg-center">
-                                <nav class="main-menu menu-style1 d-none align-items-center gap-4 d-lg-flex justify-content-end">
+                                <nav
+                                    class="main-menu menu-style1 d-none align-items-center gap-4 d-lg-flex justify-content-end">
                                     <ul>
                                         <li>
                                             <a href="/">Home </a>
@@ -200,20 +208,20 @@
                                         <li class="menu-item-has-children">
                                             <a href="/adult-cardiac-disease">Plugs & Sockets</a>
                                             <ul class="sub-menu">
-                                            <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
-                                                <li>
-                                                    <a href="/service-details/<%= service._id %>">
-                                                        <%= service.name %>
-                                                    </a>
-                                                </li>
-                                                <% }); %>
+                                                <% adultCardiacServices.slice(0, 3).forEach(service=> { %>
+                                                    <li>
+                                                        <a href="/service-details/<%= service._id %>">
+                                                            <%= service.name %>
+                                                        </a>
+                                                    </li>
+                                                    <% }); %>
 
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="/contact">Contact</a>
                                         </li>
-                                        
+
                                         <!-- <li class="menu-item-has-children">
                                             <a href="/pediatric-cardiac-disease">Pediatric Cardiac Disease</a>
                                             <ul class="sub-menu">
@@ -249,17 +257,20 @@
 
                                     </ul>
                                     <div>
-                                        <a href="/assets/pdf/mypdf.pdf" download class="px-2 py-1 text-white rounded-2 fs-6" style="background-color: #FF6807;">E
+                                        <a href="/assets/pdf/mypdf.pdf" download
+                                            class="px-2 py-1 text-white rounded-2 fs-6"
+                                            style="background-color: #FF6807;">E
                                             CATALOGUE</a>
                                     </div>
 
                                 </nav>
-                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fas fa-bars"></i></button>
+                                <button class="vs-menu-toggle d-inline-block d-lg-none"><i
+                                        class="fas fa-bars"></i></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </header>

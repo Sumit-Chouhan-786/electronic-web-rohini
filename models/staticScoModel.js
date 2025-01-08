@@ -13,8 +13,7 @@ const staticSeo = new mongoose.Schema(
     },
     pageType: {
       type: String,
-      enum: ["home", "about", "contact"],
-      required: true,
+      enum: ["home", "about", "contact", "clients", "Plugs & Sockets","blogs"],
     },
   },
   { timestamps: true }
